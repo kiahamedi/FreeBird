@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'account.apps.AccountConfig',
     'web.apps.WebConfig',
     'extensions',
+    'widget_tweaks',
 ]
 
 MIDDLEWARE = [
@@ -122,7 +123,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 # STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-STATICFIELS_DIRS = [
+STATICFILES_DIRS = [
     BASE_DIR / 'static',
 ]
 
