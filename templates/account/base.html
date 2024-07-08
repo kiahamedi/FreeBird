@@ -16,6 +16,8 @@
   <link rel="stylesheet" href="{% static 'adminlte/admindist/css/adminlte.min.css' %}">
   <!-- Jquery Context Menu -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-contextmenu/2.7.1/jquery.contextMenu.min.css">
+   <!-- CSS Upload Modal -->
+   <link rel="stylesheet" href="{% static 'css/uploadmodal.css' %}">
 </head>
 <body class="hold-transition dark-mode sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
 <div class="wrapper">
@@ -77,6 +79,9 @@
 
   <!-- Main Footer -->
   {% include "account/footer.html" %}
+
+    <!-- Modals -->
+    {% include "account/modals.html" %}
 </div>
 <!-- ./wrapper -->
 
@@ -104,6 +109,9 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-contextmenu/2.7.1/jquery.contextMenu.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-contextmenu/2.7.1/jquery.ui.position.js"></script>
 <script src="{% static 'js/contexmenu.js' %}"></script>
+
+<!-- JS Upload Modal -->
+<script src="{% static 'js/modalupload.js' %}"></script>
 
 </body>
 </html>

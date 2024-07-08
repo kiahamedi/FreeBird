@@ -10,6 +10,9 @@ var $ = jQuery;
                     callback: function (key, options) {
                         var m = "clicked: " + key;
                         console.log(m);
+                        if (key == "uploadfile"){
+                            $('#modal-upload-file').modal('toggle');
+                        };
                     },
                     items: {
                         "uploadfile": { name: "Upload File", icon: "fas fa-file-upload" },
