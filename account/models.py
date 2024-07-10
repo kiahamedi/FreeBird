@@ -19,7 +19,7 @@ class Object(models.Model):
     iFile = models.BooleanField(default=False, verbose_name="Is File")
     iFolder = models.BooleanField(default=False, verbose_name="Is Folder")
     uploadFile = models.FileField(null=True, blank=True, upload_to=upload_to , verbose_name="File")
-    iformat = size = models.CharField(null=True, blank=True, max_length=50 ,verbose_name="Format")
+    iformat = models.CharField(null=True, blank=True, max_length=50 ,verbose_name="Format")
     size = models.CharField(null=True, blank=True, max_length=50 ,verbose_name="Size")
     path = models.TextField(null=False, blank=False ,verbose_name="Path")
     trash = models.BooleanField(default=False, verbose_name="Is Trash")
