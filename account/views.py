@@ -1,12 +1,13 @@
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
-from account.models import User
+from account.models import User, Object
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
 from rest_framework.permissions import IsAuthenticated
 from rest_framework_simplejwt.authentication import JWTAuthentication
 from rest_framework_simplejwt.tokens import RefreshToken
+from extensions.utils import convert_size
 
 
 # Create your views here.
@@ -35,9 +36,29 @@ class UploadFile(APIView):
     authentication_classes = [JWTAuthentication]
     permission_classes = [IsAuthenticated]
 
-    def post(self, request, format=None):
+    def post(self, request):
+        userFile = request.FILES.get('user-file')
+        userFilePath = request.POST.get('user-file-path')
+        
+        owner = request.user
+        userFileFormat = userFile.name.split(".")[1]
+        userFileName = userFile.name.split(".")[0]
+        userFileSize = convert_size(userFile.size)
+
+        newFile = Object()
+        newFile.owner = owner
+        newFile.name = userFileName
+        newFile.iFile = True
+        newFile.iFolder = False
+        newFile.uploadFile = userFile
+        newFile.iformat = userFileFormat
+        newFile.size = userFileSize
+        newFile.path = userFilePath
+        newFile.save()
+        
         content = {
             'msg' : "Your file successfully uploaded",
             'data' : None
         }
+        
         return Response(content, status=status.HTTP_201_CREATED)
