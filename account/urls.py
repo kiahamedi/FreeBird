@@ -1,7 +1,10 @@
 from django.urls import path
 from account import views as account_views
 from django.contrib.auth import views
-
+from rest_framework_simplejwt.views import (
+    TokenObtainPairView,
+    TokenRefreshView,
+)
 
 app_name = 'account'
 
@@ -12,4 +15,8 @@ urlpatterns = [
 urlpatterns += [
     path('', account_views.home, name="home"),
     path('profile/', account_views.profile, name="profile"),
+    path('api/upload/', account_views.UploadFile.as_view()),
+    
+    path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
+    path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
 ]

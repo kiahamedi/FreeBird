@@ -1,4 +1,3 @@
-from django.contrib.auth.models import Group
 from account.models import User
 from rest_framework import serializers
 
