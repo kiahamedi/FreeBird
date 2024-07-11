@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'web.apps.WebConfig',
     'extensions',
     'widget_tweaks',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
