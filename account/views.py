@@ -6,6 +6,7 @@ from rest_framework.response import Response
 from rest_framework import status
 from rest_framework.permissions import IsAuthenticated
 from rest_framework_simplejwt.authentication import JWTAuthentication
+from rest_framework_simplejwt.tokens import RefreshToken
 
 
 # Create your views here.
@@ -15,7 +16,11 @@ def home(request):
     context = {
         
     }
-    return render(request, 'account/home.html', context)
+    response = render(request, 'account/home.html', context)
+    refresh = RefreshToken.for_user(request.user)
+    response.set_cookie("jr" , str(refresh))
+    response.set_cookie("ja" , str(refresh.access_token))
+    return response
 
 
 @login_required
