@@ -1,3 +1,40 @@
+
+var uploadedFileName;
+
+function uploadProgressHandler(event) {
+    var percent = (event.loaded / event.total) * 100;
+    var progress = Math.round(percent);
+    $("#modal-upload-progressbar-percentage").html(progress + "%" + " | " + humanFileSize(event.loaded) + " bytes of " + humanFileSize(event.total));
+}
+
+function loadHandler(event) {
+    var percent = (event.loaded / event.total) * 100;
+    var progress = Math.round(percent);
+    $("#modal-upload-progressbar").attr('aria-valuenow', progress + '');
+    $("#modal-upload-progressbar").attr('style','width: ' + progress + '%;');
+    if (progress == 100) {
+        $("#modal-upload-progressbar").attr('class','progress-bar bg-success');
+        $("#modal-listof-uploaded").prepend("<a href='#' class='list-group-item list-group-item-success text-success'>"+uploadedFileName+"</a>");
+    }
+}
+
+
+function errorHandler(event) {
+    $("#modal-upload-progressbar").attr('class','progress-bar bg-danger');
+    $("#modal-upload-progressbar").attr('aria-valuenow','100');
+    $("#modal-upload-progressbar").attr('style','width: 100%;');
+    $("#modal-upload-progressbar-percentage").html("Upload Failed");
+    $("#modal-listof-uploaded").prepend("<a href='#' class='list-group-item list-group-item-success text-danger'>"+uploadedFileName+"</a>");
+}
+
+function abortHandler(event) {
+    $("#modal-upload-progressbar").attr('class','progress-bar bg-warning');
+    $("#modal-upload-progressbar").attr('aria-valuenow','100');
+    $("#modal-upload-progressbar").attr('style','width: 100%;');
+    $("#modal-upload-progressbar-percentage").html("Upload Aborted");
+    $("#modal-listof-uploaded").prepend("<a href='#' class='list-group-item list-group-item-success text-warning'>"+uploadedFileName+"</a>");
+}
+
 + function($) {
     'use strict';
 
@@ -8,7 +45,44 @@
     var uploadForm = document.getElementById('js-upload-form');
 
     var startUpload = function(files) {
-        console.log(files)
+        console.log(files);
+        var i = 0;
+        for (i=0; i < files.length; i++){
+            
+            var file = files[i];
+            uploadedFileName = file.name;
+            // TODO: Check when upload prject on Server
+
+            var form = new FormData();
+            form.append("user-file", file);
+            form.append("user-file-path", "/root");
+            form.append("user-file-type", "image");
+
+            $.ajax({
+                url: '/account/api/upload/',
+                method: 'POST',
+                type: 'POST',
+                headers: {
+                    "Authorization": "Bearer " + getCookie('ja')
+                },
+                data: form,
+                contentType: false,
+                processData: false,
+                xhr: function () {
+                    var xhr = new window.XMLHttpRequest();
+                    xhr.upload.addEventListener("progress",
+                        uploadProgressHandler,
+                        false
+                    );
+                    xhr.addEventListener("load", loadHandler, false);
+                    xhr.addEventListener("error", errorHandler, false);
+                    xhr.addEventListener("abort", abortHandler, false);
+
+                    return xhr;
+                }
+            });
+            
+        }
     }
 
     uploadForm.addEventListener('submit', function(e) {
