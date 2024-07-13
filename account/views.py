@@ -19,6 +19,7 @@ def home(request):
     }
     response = render(request, 'account/home.html', context)
     refresh = RefreshToken.for_user(request.user)
+    response.set_cookie("pwd" , '/root')
     response.set_cookie("jr" , str(refresh))
     response.set_cookie("ja" , str(refresh.access_token))
     return response
@@ -58,6 +59,34 @@ class UploadFile(APIView):
         
         content = {
             'msg' : "Your file successfully uploaded",
+            'data' : None
+        }
+        
+        return Response(content, status=status.HTTP_201_CREATED)
+
+
+
+class CreateFolder(APIView):
+    authentication_classes = [JWTAuthentication]
+    permission_classes = [IsAuthenticated]
+
+    def post(self, request):
+        pwd = request.POST.get('pwd')
+        userFolderName = request.POST.get('folder-name')
+        
+        owner = request.user
+
+        newFile = Object()
+        newFile.owner = owner
+        newFile.name = userFolderName
+        newFile.iFile = False
+        newFile.iFolder = True
+        newFile.iformat = 'folder'
+        newFile.path = pwd
+        newFile.save()
+        
+        content = {
+            'msg' : "Your folder created successfully",
             'data' : None
         }
         
