@@ -1,3 +1,33 @@
+var toastMixinSuccess = Swal.mixin({
+  toast: true,
+  icon: 'success',
+  title: 'Title',
+  animation: false,
+  position: 'top-right',
+  showConfirmButton: false,
+  timer: 3000,
+  timerProgressBar: true,
+  didOpen: (toast) => {
+    toast.addEventListener('mouseenter', Swal.stopTimer)
+    toast.addEventListener('mouseleave', Swal.resumeTimer)
+  }
+});
+
+var toastMixinDanger = Swal.mixin({
+  toast: true,
+  icon: 'error',
+  title: 'Title',
+  animation: false,
+  position: 'top-right',
+  showConfirmButton: false,
+  timer: 3000,
+  timerProgressBar: true,
+  didOpen: (toast) => {
+    toast.addEventListener('mouseenter', Swal.stopTimer)
+    toast.addEventListener('mouseleave', Swal.resumeTimer)
+  }
+});
+
 function getCookie(name) {
     const value = `; ${document.cookie}`;
     const parts = value.split(`; ${name}=`);
