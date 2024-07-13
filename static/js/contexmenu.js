@@ -12,6 +12,8 @@ var $ = jQuery;
                         console.log(m);
                         if (key == "uploadfile"){
                             $('#modal-upload-file').modal('toggle');
+                        }else if (key == "newfolder"){
+                            $('#modal-create-folder').modal('toggle');
                         };
                     },
                     items: {
