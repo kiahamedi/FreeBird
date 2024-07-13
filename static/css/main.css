@@ -1,0 +1,21 @@
+.swal2-title {
+    margin: 0 !important;
+    color: #fff !important;
+    background-color: #454d55 !important;
+}
+
+.swal2-popup.swal2-toast{
+    background: #454d55 !important;
+}
+
+.swal2-popup swal2-toast swal2-icon-success swal2-show{
+    background-color: #454d55 !important;
+}
+
+.swal2-success-circular-line-right {
+    background-color: #454d55 !important;
+}
+
+.swal2-success-circular-line-left {
+    background-color: #454d55 !important;
+}
