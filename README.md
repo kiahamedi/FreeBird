@@ -4,6 +4,10 @@
 ## Free OpenSource Cloud Storage 
 An open source cloud storage space such as Google Drive and Mega.
 
+![Alt text](https://raw.githubusercontent.com/kiahamedi/FreeBird/main/Screenshot_account.jpeg "Optional title")
+
+![Alt text](https://raw.githubusercontent.com/kiahamedi/FreeBird/main/Screenshot_upload.jpeg "Optional title")
+
 ## ✨ Features
 
 - 💾 Unlimited storage space 
@@ -54,9 +58,15 @@ Starting development server at http://127.0.0.1:8000/
 Quit the server with CTRL-BREAK.
 ```
 
+and go `http://127.0.0.1:8000/account/`
+
 ## 💻 Are you a developer?
 > 1-Fork it!</br>
 > 2-Create your feature branch: git checkout -b my-new-feature</br>
 > 3-Commit your changes: git commit -am 'Add some feature'</br>
 > 4-Push to the branch: git push origin my-new-feature</br>
 > 5-Submit a pull request</br>
+
+## 🎓 Tutorial course?
+The entire construction and development stages of this project will be published in this YouTube playlist:<br>
+[Youtube Playlist](https://www.youtube.com/playlist?list=PLg_4AXQvszyHmnIbNgPmdrKzAR5ZZnQcn)
