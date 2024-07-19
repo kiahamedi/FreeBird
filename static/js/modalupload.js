@@ -56,7 +56,7 @@ function abortHandler(event) {
             var form = new FormData();
             form.append("user-file", file);
             form.append("user-file-path", "/root");
-            form.append("user-file-type", "image");
+            form.append("user-file-type", file.type);
 
             $.ajax({
                 url: '/account/api/upload/',
