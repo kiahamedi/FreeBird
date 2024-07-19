@@ -37,3 +37,43 @@ function createFolder(){
         console.error(error)
     });
 }
+
+
+async function refreshObjects(){
+    var pwd = getCookie('pwd');
+    const myHeaders = new Headers();
+    myHeaders.append("Authorization", "Bearer " + getCookie('ja'));
+
+    const formdata = new FormData();
+    formdata.append("pwd", pwd);
+
+    const requestOptions = {
+        method: "POST",
+        headers: myHeaders,
+        body: formdata,
+        redirect: "follow"
+    };
+
+    await fetch("/account/api/ourobjects/", requestOptions)
+    .then((response)  =>  {
+        if (response.status == 200){
+            toastMixinSuccess.fire({
+                animation: true,
+                title: "Refreshed Data"
+              });
+            return response.json()
+        } else {
+            toastMixinDanger.fire({
+                animation: true,
+                title: "Error when refresh data!"
+              });
+        }
+    }).then(data => {
+        console.log(data);
+    })
+    .catch((error) => {
+        console.error(error)
+    });
+
+
+}
