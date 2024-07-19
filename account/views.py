@@ -40,6 +40,7 @@ class UploadFile(APIView):
     def post(self, request):
         userFile = request.FILES.get('user-file')
         userFilePath = request.POST.get('user-file-path')
+        userFilePath = userFilePath.replace('"','')
         userFileType = request.POST.get('user-file-type')
         
         owner = request.user
@@ -72,6 +73,7 @@ class CreateFolder(APIView):
 
     def post(self, request):
         pwd = request.POST.get('pwd')
+        pwd = pwd.replace('"','')
         userFolderName = request.POST.get('folder-name')
         
         owner = request.user
@@ -91,3 +93,45 @@ class CreateFolder(APIView):
         }
         
         return Response(content, status=status.HTTP_201_CREATED)
+
+
+
+class OurObjects(APIView):
+    authentication_classes = [JWTAuthentication]
+    permission_classes = [IsAuthenticated]
+
+    def post(self, request):
+        pwd = request.POST.get('pwd')
+        pwd = pwd.replace('"','')
+        owner = request.user
+
+        objects = Object.objects.filter(owner=owner, path=pwd).exclude(trash=True)
+        
+        alldata=[]
+        
+        for data in objects:
+            if data.iFile:
+                dataurl = data.uploadFile.url
+            else:
+                dataurl = None
+            alldata.append({
+                'id': data.id,
+                'owner': data.owner.username,
+                'name': data.name,
+                'ifile': data.iFile,
+                'ifolder': data.iFolder,
+                'uploadfile': dataurl,
+                'iformat': data.iformat,
+                'size': data.size,
+                'pwd': data.path,
+                'stared': data.stared,
+                'created': data.created.strftime('%Y-%m-%d %H:%M'),
+                'updated': data.updated.strftime('%Y-%m-%d %H:%M')
+            })
+        
+        content = {
+            'msg' : "Your objects",
+            'data' : alldata
+        }
+        
+        return Response(content, status=status.HTTP_200_OK)
