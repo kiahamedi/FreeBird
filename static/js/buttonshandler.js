@@ -6,4 +6,6 @@ $(document).ready(function() {
     $("#button-main-refresh-objects").click(function(){
         refreshObjects();
     }); 
+
+    refreshObjects();
 });

@@ -15,6 +15,7 @@ function loadHandler(event) {
     if (progress == 100) {
         $("#modal-upload-progressbar").attr('class','progress-bar bg-success');
         $("#modal-listof-uploaded").prepend("<a href='#' class='list-group-item list-group-item-success text-success'>"+uploadedFileName+"</a>");
+        refreshObjects();
     }
 }
 
