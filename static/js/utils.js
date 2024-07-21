@@ -54,3 +54,18 @@ function getBackwardPath(path){
   }
   return backwardPath;
 }
+
+function buildBackwardPathToolbar(path){
+  $('#main-toolbar-tree-path').html('<li class="breadcrumb-item"></li>');
+  var folders = path.split("/");
+  var backwardPath = "";
+  for (i=1; i<folders.length ; i++){
+    $('#main-toolbar-tree-path').append(`
+      <li class="breadcrumb-item">
+          ${folders[i]}
+      </li>
+    `);
+  }
+  
+  
+}

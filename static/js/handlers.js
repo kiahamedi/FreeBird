@@ -41,7 +41,7 @@ function createFolder(){
 
 async function refreshObjects(folderId, folderName){
     $('#class-main-file-manager').html('');
-    var pwd = getCookie('pwd').replace(/"/g,'');;
+    var pwd = getCookie('pwd').replace(/"/g,'');
     const myHeaders = new Headers();
     myHeaders.append("Authorization", "Bearer " + getCookie('ja'));
 
@@ -77,6 +77,9 @@ async function refreshObjects(folderId, folderName){
             setCookie('pwd', `${pwd}/${folderName}`);
             setCookie('pwd_id', folderId);
         }
+
+        // Build ToolbarTree path
+        buildBackwardPathToolbar(getCookie('pwd').replace(/"/g,''));
 
         data = data.data;
         // TODO: If data is empty check for try catch

@@ -1,7 +1,9 @@
 function backItem(){
     var item = `
     <div class="file-item">
-        <div class="file-item-icon file-item-level-up fas fa-level-up-alt text-secondary"></div>
+        <a href="javascript:backFromFolder()">
+            <div class="file-item-icon file-item-level-up fas fa-level-up-alt text-secondary"></div>
+        </a>
         <a href="javascript:backFromFolder()" class="file-item-name">
             ..
         </a>
