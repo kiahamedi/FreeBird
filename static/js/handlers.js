@@ -39,14 +39,20 @@ function createFolder(){
 }
 
 
-async function refreshObjects(folderId, folderName){
+async function refreshObjects(folderId, folderName, modalflag=0){
     $('#class-main-file-manager').html('');
     var pwd = getCookie('pwd').replace(/"/g,'');
     const myHeaders = new Headers();
     myHeaders.append("Authorization", "Bearer " + getCookie('ja'));
 
     const formdata = new FormData();
-    formdata.append("pwd", pwd);
+    
+    // check for call function from modal or not
+    if (modalflag == 0){
+        formdata.append("pwd", pwd);
+    } else {
+        formdata.append("pwd", getBackwardPath(pwd));
+    }
     formdata.append("folderId", folderId);
     formdata.append("folderName", folderName);
 
@@ -56,7 +62,7 @@ async function refreshObjects(folderId, folderName){
         body: formdata,
         redirect: "follow"
     };
-
+    
     await fetch("/account/api/ourobjects/", requestOptions)
     .then((response)  =>  {
         if (response.status == 200){
@@ -73,19 +79,29 @@ async function refreshObjects(folderId, folderName){
         }
     }).then(data => {
         if (folderName != null && folderId != null){
-            setCookie('pwd', '');
-            setCookie('pwd', `${pwd}/${folderName}`);
-            setCookie('pwd_id', folderId);
+            // check for call function from modal or not
+            if (modalflag == 0){
+                var tmp_pwd = getCookie('pwd').replace(/"/g,'') + '/' + folderName;
+                setCookie('pwd', tmp_pwd);
+                setCookie('pwd_id', folderId);
+            } else {
+                var tmp_pwd = getCookie('pwd').replace(/"/g,'');
+                setCookie('pwd', tmp_pwd);
+                setCookie('pwd_id', folderId);
+            }
+            
         }
 
+        var pwd = getCookie('pwd').replace(/"/g,'');
+
         // Build ToolbarTree path
-        buildBackwardPathToolbar(getCookie('pwd').replace(/"/g,''));
+        buildBackwardPathToolbar(pwd);
 
         data = data.data;
         // TODO: If data is empty check for try catch
         // Check for is root path or exsit in folder
         console.log(data == []) 
-        if (data === undefined || data.length == 0 || pwd != "/root") {
+        if (data.length == 0 || pwd != "/root") {
             $('#class-main-file-manager').append(backItem());  
         }
 

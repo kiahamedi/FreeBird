@@ -17,11 +17,13 @@ function loadHandler(event) {
         $("#modal-listof-uploaded").prepend("<a href='#' class='list-group-item list-group-item-success text-success'>"+uploadedFileName+"</a>");
         
         var folderId = getCookie('pwd_id').replace(/"/g,'');
-        var folderName = getCookie('pwd').replace(/"/g,'');
+
+        var fullpath = getCookie('pwd').replace(/"/g,'').split('/');
+        var folderName = fullpath[fullpath.length - 1]
         if (folderId == '/root' && folderName == '/root'){
             refreshObjects(null,null);
         } else {
-            refreshObjects(folderId,folderName);
+            refreshObjects(folderId,folderName, 1);
         }
     }
 }
@@ -59,11 +61,11 @@ function abortHandler(event) {
             
             var file = files[i];
             uploadedFileName = file.name;
-            // TODO: Check when upload prject on Server
+            var pwd = getCookie('pwd').replace(/"/g,'');
 
             var form = new FormData();
             form.append("user-file", file);
-            form.append("user-file-path", "/root");
+            form.append("user-file-path", pwd);
             form.append("user-file-type", file.type);
 
             $.ajax({

@@ -56,6 +56,7 @@ function getBackwardPath(path){
 }
 
 function buildBackwardPathToolbar(path){
+  $('#main-toolbar-tree-path').html('');
   $('#main-toolbar-tree-path').html('<li class="breadcrumb-item"></li>');
   var folders = path.split("/");
   var backwardPath = "";
