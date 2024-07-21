@@ -52,5 +52,5 @@ function getBackwardPath(path){
   for (i=1; i<folders.length - 1 ; i++){
     backwardPath += "/" + folders[i]
   }
-  console.log(backwardPath);
+  return backwardPath;
 }
