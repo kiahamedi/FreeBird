@@ -45,3 +45,12 @@ function humanFileSize(size) {
   var i = size == 0 ? 0 : Math.floor(Math.log(size) / Math.log(1024));
   return +((size / Math.pow(1024, i)).toFixed(2)) * 1 + ' ' + ['B', 'kB', 'MB', 'GB', 'TB'][i];
 }
+
+function getBackwardPath(path){
+  var folders = path.split("/");
+  var backwardPath = "";
+  for (i=1; i<folders.length - 1 ; i++){
+    backwardPath += "/" + folders[i]
+  }
+  console.log(backwardPath);
+}
