@@ -39,14 +39,16 @@ function createFolder(){
 }
 
 
-async function refreshObjects(){
+async function refreshObjects(folderId, folderName){
     $('#class-main-file-manager').html('');
-    var pwd = getCookie('pwd');
+    var pwd = getCookie('pwd').replace(/"/g,'');;
     const myHeaders = new Headers();
     myHeaders.append("Authorization", "Bearer " + getCookie('ja'));
 
     const formdata = new FormData();
     formdata.append("pwd", pwd);
+    formdata.append("folderId", folderId);
+    formdata.append("folderName", folderName);
 
     const requestOptions = {
         method: "POST",
@@ -70,16 +72,22 @@ async function refreshObjects(){
               });
         }
     }).then(data => {
-        data = data.data;
+        if (folderName != null && folderId != null){
+            setCookie('pwd', '');
+            setCookie('pwd', `${pwd}/${folderName}`);
+            setCookie('pwd_id', folderId);
+        }
 
+        data = data.data;
+        // TODO: If data is empty check for try catch
         // Check for is root path or exsit in folder
-        var file_pwd =data[0]['pwd']
-        if (file_pwd != "/root"){
+        console.log(data == []) 
+        if (data === undefined || data.length == 0 || pwd != "/root") {
             $('#class-main-file-manager').append(backItem());  
         }
 
         for (i=0; i<data.length; i++){
-            console.log(data[i])
+            // console.log(data[i])
             
             var file_id = data[i]['id']
             var file_owner = data[i]['owner']
@@ -121,4 +129,23 @@ async function refreshObjects(){
     });
 
 
+}
+
+
+
+
+function openToFolder(id, name){
+    refreshObjects(id, name);
+}
+
+
+function backFromFolder(){
+    var pwd = getCookie('pwd');
+    var backwardpath = getBackwardPath(pwd);
+    if (backwardpath == '/root'){
+        console.log("in backward")
+        setCookie("pwd", backwardpath);
+        setCookie("pwd_id", backwardpath);
+        refreshObjects(null,null);
+    }
 }

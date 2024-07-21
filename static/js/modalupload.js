@@ -15,7 +15,14 @@ function loadHandler(event) {
     if (progress == 100) {
         $("#modal-upload-progressbar").attr('class','progress-bar bg-success');
         $("#modal-listof-uploaded").prepend("<a href='#' class='list-group-item list-group-item-success text-success'>"+uploadedFileName+"</a>");
-        refreshObjects();
+        
+        var folderId = getCookie('pwd_id').replace(/"/g,'');
+        var folderName = getCookie('pwd').replace(/"/g,'');
+        if (folderId == '/root' && folderName == '/root'){
+            refreshObjects(null,null);
+        } else {
+            refreshObjects(folderId,folderName);
+        }
     }
 }
 

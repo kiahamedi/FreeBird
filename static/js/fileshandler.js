@@ -2,7 +2,7 @@ function backItem(){
     var item = `
     <div class="file-item">
         <div class="file-item-icon file-item-level-up fas fa-level-up-alt text-secondary"></div>
-        <a href="javascript:void(0)" class="file-item-name">
+        <a href="javascript:backFromFolder()" class="file-item-name">
             ..
         </a>
     </div>
@@ -18,8 +18,8 @@ function folderItem(id, name){
                 <input type="checkbox" class="custom-control-input" />
                 <span class="custom-control-label"></span>
             </label>
-            <div class="file-item-icon fas fa-folder text-secondary"></div>
-            <a href="javascript:void(0)" class="file-item-name">
+            <a href="javascript:openToFolder(${id},'${name}')"><div class="file-item-icon fas fa-folder text-secondary"></div></a>
+            <a href="javascript:openToFolder(${id},'${name}')" class="file-item-name">
                 ${name}
             </a>
             <div class="file-item-changed">02/13/2018</div>

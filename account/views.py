@@ -20,6 +20,7 @@ def home(request):
     response = render(request, 'account/home.html', context)
     refresh = RefreshToken.for_user(request.user)
     response.set_cookie("pwd" , '/root')
+    response.set_cookie("pwd_id" , '/root')
     response.set_cookie("jr" , str(refresh))
     response.set_cookie("ja" , str(refresh.access_token))
     return response
@@ -102,10 +103,18 @@ class OurObjects(APIView):
 
     def post(self, request):
         pwd = request.POST.get('pwd')
-        pwd = pwd.replace('"','')
+        folderId = request.POST.get('folderId')
+        folderName = request.POST.get('folderName')
         owner = request.user
 
-        objects = Object.objects.filter(owner=owner, path=pwd).exclude(trash=True)
+        
+        if folderName == 'null':
+            objects = Object.objects.filter(owner=owner, path=pwd).exclude(trash=True)
+            print(pwd)
+        else:
+            targetPWD = f"{pwd}/{folderName}"
+            objects = Object.objects.filter(owner=owner, path=targetPWD).exclude(trash=True)
+            print(targetPWD)
         
         alldata=[]
         
@@ -133,5 +142,7 @@ class OurObjects(APIView):
             'msg' : "Your objects",
             'data' : alldata
         }
+        
+        print(alldata)
         
         return Response(content, status=status.HTTP_200_OK)

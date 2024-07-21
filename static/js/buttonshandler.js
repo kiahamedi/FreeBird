@@ -4,8 +4,16 @@ $(document).ready(function() {
     }); 
 
     $("#button-main-refresh-objects").click(function(){
-        refreshObjects();
+
+        var folderId = getCookie('pwd_id').replace(/"/g,'');
+        var folderName = getCookie('pwd').replace(/"/g,'');
+        if (folderId == '/root' && folderName == '/root'){
+            refreshObjects(null,null);
+        } else {
+            refreshObjects(folderId,folderName);
+        }
+        
     }); 
 
-    refreshObjects();
+    refreshObjects(null,null);
 });
