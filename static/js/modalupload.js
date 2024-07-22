@@ -16,15 +16,7 @@ function loadHandler(event) {
         $("#modal-upload-progressbar").attr('class','progress-bar bg-success');
         $("#modal-listof-uploaded").prepend("<a href='#' class='list-group-item list-group-item-success text-success'>"+uploadedFileName+"</a>");
         
-        var folderId = getCookie('pwd_id').replace(/"/g,'');
-
-        var fullpath = getCookie('pwd').replace(/"/g,'').split('/');
-        var folderName = fullpath[fullpath.length - 1]
-        if (folderId == '/root' && folderName == '/root'){
-            refreshObjects(null,null);
-        } else {
-            refreshObjects(folderId,folderName, 1);
-        }
+        refreshObjectsHere();
     }
 }
 
