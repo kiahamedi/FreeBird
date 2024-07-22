@@ -172,9 +172,15 @@ function backFromFolder(){
     var pwd = getCookie('pwd');
     var backwardpath = getBackwardPath(pwd);
     if (backwardpath == '/root'){
-        console.log("in backward")
+        console.log("in backward");
         setCookie("pwd", backwardpath);
         setCookie("pwd_id", backwardpath);
         refreshObjects(null,null);
+    } else {
+        console.log("in backward");
+        setCookie("pwd", backwardpath);
+        setCookie("pwd_id", backwardpath);
+        refreshObjects(null,null);
+
     }
 }
