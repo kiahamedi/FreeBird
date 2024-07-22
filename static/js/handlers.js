@@ -25,6 +25,16 @@ function createFolder(){
                 title: "Your folder created successfully on FreeBird"
               });
             $("#input-text-modal-foldername").val("");
+            $('#modal-create-folder').modal('toggle');
+            var folderId = getCookie('pwd_id').replace(/"/g,'');
+
+            var fullpath = getCookie('pwd').replace(/"/g,'').split('/');
+            var folderName = fullpath[fullpath.length - 1]
+            if (folderId == '/root' && folderName == '/root'){
+                refreshObjects(null,null);
+            } else {
+                refreshObjects(folderId,folderName, 1);
+            }
         } else {
             toastMixinDanger.fire({
                 animation: true,

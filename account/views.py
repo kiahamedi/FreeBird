@@ -77,10 +77,22 @@ class CreateFolder(APIView):
         userFolderName = request.POST.get('folder-name')
         
         owner = request.user
+        
+        targetFolderName = userFolderName
+        index = 1
+        while True:
+            try:
+                existFolder = Object.objects.get(owner=owner, iFolder=True, name=targetFolderName)
+                if f"({index + 1})" in targetFolderName:
+                    index += 1
+                else:
+                    targetFolderName = f"{userFolderName} ({index + 1})"
+            except:
+                break
 
         newFile = Object()
         newFile.owner = owner
-        newFile.name = userFolderName
+        newFile.name = targetFolderName
         newFile.iFile = False
         newFile.iFolder = True
         newFile.iformat = 'folder'
@@ -105,7 +117,6 @@ class OurObjects(APIView):
         folderId = request.POST.get('folderId')
         folderName = request.POST.get('folderName')
         owner = request.user
-
         
         if folderName == 'null':
             objects = Object.objects.filter(owner=owner, path=pwd).exclude(trash=True)
@@ -139,9 +150,10 @@ class OurObjects(APIView):
         
         content = {
             'msg' : "Your objects",
-            'data' : alldata
+            'data' : alldata,
+            
         }
         
-        print(alldata)
+        # print(alldata)
         
         return Response(content, status=status.HTTP_200_OK)
