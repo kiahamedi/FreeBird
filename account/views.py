@@ -119,11 +119,11 @@ class OurObjects(APIView):
         owner = request.user
         
         if folderName == 'null':
-            objects = Object.objects.filter(owner=owner, path=pwd).exclude(trash=True)
+            objects = Object.objects.filter(owner=owner, path=pwd).exclude(trash=True).order_by('-iFolder')
             print(pwd)
         else:
             targetPWD = f"{pwd}/{folderName}"
-            objects = Object.objects.filter(owner=owner, path=targetPWD).exclude(trash=True)
+            objects = Object.objects.filter(owner=owner, path=targetPWD).exclude(trash=True).order_by('-iFolder')
             print(targetPWD)
         
         alldata=[]
