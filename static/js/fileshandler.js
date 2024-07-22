@@ -20,7 +20,7 @@ function folderItem(id, name){
                 <input type="checkbox" class="custom-control-input" />
                 <span class="custom-control-label"></span>
             </label>
-            <a href="javascript:openToFolder(${id},'${name}')"><div class="file-item-icon fas fa-folder text-secondary"></div></a>
+            <a href="javascript:openToFolder(${id},'${name}')"><div class="file-item-icon fas fa-folder text-secondary folderitem"></div></a>
             <a href="javascript:openToFolder(${id},'${name}')" class="file-item-name">
                 ${name}
             </a>
@@ -28,10 +28,23 @@ function folderItem(id, name){
             <div class="file-item-actions btn-group">
                 <button type="button" class="btn btn-dropdown btn-sm  icon-btn borderless md-btn-flat hide-arrow dropdown-toggle" data-toggle="dropdown"><i class="ion ion-ios-more"></i></button>
                 <div class="dropdown-menu dropdown-menu-right">
+                    <a class="dropdown-item" href="javascript:void(0)">Open</a>
                     <a class="dropdown-item" href="javascript:void(0)">Rename</a>
                     <a class="dropdown-item" href="javascript:void(0)">Move</a>
                     <a class="dropdown-item" href="javascript:void(0)">Copy</a>
                     <a class="dropdown-item" href="javascript:void(0)">Remove</a>
+                    <a class="dropdown-item" href="javascript:void(0)">Download</a>
+                    <hr class="mt-1 mb-1" style="background-color: white;">
+                    <a class="dropdown-item" href="javascript:void(0)">Share</a>
+                    <a class="dropdown-item" href="javascript:void(0)">Link</a>
+                    <a class="dropdown-item" href="javascript:void(0)">Star</a>
+                    <hr class="mt-1 mb-1" style="background-color: white;">
+                    <a class="dropdown-item" href="javascript:void(0)">Compress to zip</a>
+                    <a class="dropdown-item" href="javascript:void(0)">Compress to rar</a>
+                    <a class="dropdown-item" href="javascript:void(0)">Compress to tar</a>
+                    <a class="dropdown-item" href="javascript:void(0)">Compress to tar.gz</a>
+                    <hr class="mt-1 mb-1" style="background-color: white;">
+                    <a class="dropdown-item" href="javascript:void(0)">Details</a>
                 </div>
             </div>
         </div>
@@ -57,11 +70,24 @@ function imageItem(id, name, url){
         <div class="file-item-actions btn-group">
             <button type="button" class="btn btn-dropdown btn-sm  icon-btn borderless md-btn-flat hide-arrow dropdown-toggle" data-toggle="dropdown"><i class="ion ion-ios-more"></i></button>
             <div class="dropdown-menu dropdown-menu-right">
-                <a class="dropdown-item" href="javascript:void(0)">Rename</a>
-                <a class="dropdown-item" href="javascript:void(0)">Move</a>
-                <a class="dropdown-item" href="javascript:void(0)">Copy</a>
-                <a class="dropdown-item" href="javascript:void(0)">Remove</a>
-            </div>
+                    <a class="dropdown-item" href="javascript:void(0)">Open</a>
+                    <a class="dropdown-item" href="javascript:void(0)">Rename</a>
+                    <a class="dropdown-item" href="javascript:void(0)">Move</a>
+                    <a class="dropdown-item" href="javascript:void(0)">Copy</a>
+                    <a class="dropdown-item" href="javascript:void(0)">Remove</a>
+                    <a class="dropdown-item" href="javascript:void(0)">Download</a>
+                    <hr class="mt-1 mb-1" style="background-color: white;">
+                    <a class="dropdown-item" href="javascript:void(0)">Share</a>
+                    <a class="dropdown-item" href="javascript:void(0)">Link</a>
+                    <a class="dropdown-item" href="javascript:void(0)">Star</a>
+                    <hr class="mt-1 mb-1" style="background-color: white;">
+                    <a class="dropdown-item" href="javascript:void(0)">Compress to zip</a>
+                    <a class="dropdown-item" href="javascript:void(0)">Compress to rar</a>
+                    <a class="dropdown-item" href="javascript:void(0)">Compress to tar</a>
+                    <a class="dropdown-item" href="javascript:void(0)">Compress to tar.gz</a>
+                    <hr class="mt-1 mb-1" style="background-color: white;">
+                    <a class="dropdown-item" href="javascript:void(0)">Details</a>
+                </div>
         </div>
     </div>
     `;
@@ -85,10 +111,23 @@ function pdfItem(id, name, url){
             <div class="file-item-actions btn-group">
                 <button type="button" class="btn btn-dropdown btn-sm  icon-btn borderless md-btn-flat hide-arrow dropdown-toggle" data-toggle="dropdown"><i class="ion ion-ios-more"></i></button>
                 <div class="dropdown-menu dropdown-menu-right">
+                    <a class="dropdown-item" href="javascript:void(0)">Open</a>
                     <a class="dropdown-item" href="javascript:void(0)">Rename</a>
                     <a class="dropdown-item" href="javascript:void(0)">Move</a>
                     <a class="dropdown-item" href="javascript:void(0)">Copy</a>
                     <a class="dropdown-item" href="javascript:void(0)">Remove</a>
+                    <a class="dropdown-item" href="javascript:void(0)">Download</a>
+                    <hr class="mt-1 mb-1" style="background-color: white;">
+                    <a class="dropdown-item" href="javascript:void(0)">Share</a>
+                    <a class="dropdown-item" href="javascript:void(0)">Link</a>
+                    <a class="dropdown-item" href="javascript:void(0)">Star</a>
+                    <hr class="mt-1 mb-1" style="background-color: white;">
+                    <a class="dropdown-item" href="javascript:void(0)">Compress to zip</a>
+                    <a class="dropdown-item" href="javascript:void(0)">Compress to rar</a>
+                    <a class="dropdown-item" href="javascript:void(0)">Compress to tar</a>
+                    <a class="dropdown-item" href="javascript:void(0)">Compress to tar.gz</a>
+                    <hr class="mt-1 mb-1" style="background-color: white;">
+                    <a class="dropdown-item" href="javascript:void(0)">Details</a>
                 </div>
             </div>
         </div>
@@ -113,10 +152,23 @@ function compressedItem(id, name, url){
             <div class="file-item-actions btn-group">
                 <button type="button" class="btn btn-dropdown btn-sm  icon-btn borderless md-btn-flat hide-arrow dropdown-toggle" data-toggle="dropdown"><i class="ion ion-ios-more"></i></button>
                 <div class="dropdown-menu dropdown-menu-right">
+                    <a class="dropdown-item" href="javascript:void(0)">Open</a>
                     <a class="dropdown-item" href="javascript:void(0)">Rename</a>
                     <a class="dropdown-item" href="javascript:void(0)">Move</a>
                     <a class="dropdown-item" href="javascript:void(0)">Copy</a>
                     <a class="dropdown-item" href="javascript:void(0)">Remove</a>
+                    <a class="dropdown-item" href="javascript:void(0)">Download</a>
+                    <hr class="mt-1 mb-1" style="background-color: white;">
+                    <a class="dropdown-item" href="javascript:void(0)">Share</a>
+                    <a class="dropdown-item" href="javascript:void(0)">Link</a>
+                    <a class="dropdown-item" href="javascript:void(0)">Star</a>
+                    <hr class="mt-1 mb-1" style="background-color: white;">
+                    <a class="dropdown-item" href="javascript:void(0)">Compress to zip</a>
+                    <a class="dropdown-item" href="javascript:void(0)">Compress to rar</a>
+                    <a class="dropdown-item" href="javascript:void(0)">Compress to tar</a>
+                    <a class="dropdown-item" href="javascript:void(0)">Compress to tar.gz</a>
+                    <hr class="mt-1 mb-1" style="background-color: white;">
+                    <a class="dropdown-item" href="javascript:void(0)">Details</a>
                 </div>
             </div>
         </div>
@@ -140,10 +192,23 @@ function videoItem(id, name, url){
             <div class="file-item-actions btn-group">
                 <button type="button" class="btn btn-dropdown btn-sm  icon-btn borderless md-btn-flat hide-arrow dropdown-toggle" data-toggle="dropdown"><i class="ion ion-ios-more"></i></button>
                 <div class="dropdown-menu dropdown-menu-right">
+                    <a class="dropdown-item" href="javascript:void(0)">Open</a>
                     <a class="dropdown-item" href="javascript:void(0)">Rename</a>
                     <a class="dropdown-item" href="javascript:void(0)">Move</a>
                     <a class="dropdown-item" href="javascript:void(0)">Copy</a>
                     <a class="dropdown-item" href="javascript:void(0)">Remove</a>
+                    <a class="dropdown-item" href="javascript:void(0)">Download</a>
+                    <hr class="mt-1 mb-1" style="background-color: white;">
+                    <a class="dropdown-item" href="javascript:void(0)">Share</a>
+                    <a class="dropdown-item" href="javascript:void(0)">Link</a>
+                    <a class="dropdown-item" href="javascript:void(0)">Star</a>
+                    <hr class="mt-1 mb-1" style="background-color: white;">
+                    <a class="dropdown-item" href="javascript:void(0)">Compress to zip</a>
+                    <a class="dropdown-item" href="javascript:void(0)">Compress to rar</a>
+                    <a class="dropdown-item" href="javascript:void(0)">Compress to tar</a>
+                    <a class="dropdown-item" href="javascript:void(0)">Compress to tar.gz</a>
+                    <hr class="mt-1 mb-1" style="background-color: white;">
+                    <a class="dropdown-item" href="javascript:void(0)">Details</a>
                 </div>
             </div>
         </div>
@@ -167,10 +232,23 @@ function docItem(id, name, url){
             <div class="file-item-actions btn-group">
                 <button type="button" class="btn btn-dropdown btn-sm  icon-btn borderless md-btn-flat hide-arrow dropdown-toggle" data-toggle="dropdown"><i class="ion ion-ios-more"></i></button>
                 <div class="dropdown-menu dropdown-menu-right">
+                    <a class="dropdown-item" href="javascript:void(0)">Open</a>
                     <a class="dropdown-item" href="javascript:void(0)">Rename</a>
                     <a class="dropdown-item" href="javascript:void(0)">Move</a>
                     <a class="dropdown-item" href="javascript:void(0)">Copy</a>
                     <a class="dropdown-item" href="javascript:void(0)">Remove</a>
+                    <a class="dropdown-item" href="javascript:void(0)">Download</a>
+                    <hr class="mt-1 mb-1" style="background-color: white;">
+                    <a class="dropdown-item" href="javascript:void(0)">Share</a>
+                    <a class="dropdown-item" href="javascript:void(0)">Link</a>
+                    <a class="dropdown-item" href="javascript:void(0)">Star</a>
+                    <hr class="mt-1 mb-1" style="background-color: white;">
+                    <a class="dropdown-item" href="javascript:void(0)">Compress to zip</a>
+                    <a class="dropdown-item" href="javascript:void(0)">Compress to rar</a>
+                    <a class="dropdown-item" href="javascript:void(0)">Compress to tar</a>
+                    <a class="dropdown-item" href="javascript:void(0)">Compress to tar.gz</a>
+                    <hr class="mt-1 mb-1" style="background-color: white;">
+                    <a class="dropdown-item" href="javascript:void(0)">Details</a>
                 </div>
             </div>
         </div>
@@ -194,10 +272,23 @@ function textItem(id, name, url){
             <div class="file-item-actions btn-group">
                 <button type="button" class="btn btn-dropdown btn-sm  icon-btn borderless md-btn-flat hide-arrow dropdown-toggle" data-toggle="dropdown"><i class="ion ion-ios-more"></i></button>
                 <div class="dropdown-menu dropdown-menu-right">
+                    <a class="dropdown-item" href="javascript:void(0)">Open</a>
                     <a class="dropdown-item" href="javascript:void(0)">Rename</a>
                     <a class="dropdown-item" href="javascript:void(0)">Move</a>
                     <a class="dropdown-item" href="javascript:void(0)">Copy</a>
                     <a class="dropdown-item" href="javascript:void(0)">Remove</a>
+                    <a class="dropdown-item" href="javascript:void(0)">Download</a>
+                    <hr class="mt-1 mb-1" style="background-color: white;">
+                    <a class="dropdown-item" href="javascript:void(0)">Share</a>
+                    <a class="dropdown-item" href="javascript:void(0)">Link</a>
+                    <a class="dropdown-item" href="javascript:void(0)">Star</a>
+                    <hr class="mt-1 mb-1" style="background-color: white;">
+                    <a class="dropdown-item" href="javascript:void(0)">Compress to zip</a>
+                    <a class="dropdown-item" href="javascript:void(0)">Compress to rar</a>
+                    <a class="dropdown-item" href="javascript:void(0)">Compress to tar</a>
+                    <a class="dropdown-item" href="javascript:void(0)">Compress to tar.gz</a>
+                    <hr class="mt-1 mb-1" style="background-color: white;">
+                    <a class="dropdown-item" href="javascript:void(0)">Details</a>
                 </div>
             </div>
         </div>
@@ -221,10 +312,23 @@ function otherItem(id, name, url){
             <div class="file-item-actions btn-group">
                 <button type="button" class="btn btn-dropdown btn-sm  icon-btn borderless md-btn-flat hide-arrow dropdown-toggle" data-toggle="dropdown"><i class="ion ion-ios-more"></i></button>
                 <div class="dropdown-menu dropdown-menu-right">
+                    <a class="dropdown-item" href="javascript:void(0)">Open</a>
                     <a class="dropdown-item" href="javascript:void(0)">Rename</a>
                     <a class="dropdown-item" href="javascript:void(0)">Move</a>
                     <a class="dropdown-item" href="javascript:void(0)">Copy</a>
                     <a class="dropdown-item" href="javascript:void(0)">Remove</a>
+                    <a class="dropdown-item" href="javascript:void(0)">Download</a>
+                    <hr class="mt-1 mb-1" style="background-color: white;">
+                    <a class="dropdown-item" href="javascript:void(0)">Share</a>
+                    <a class="dropdown-item" href="javascript:void(0)">Link</a>
+                    <a class="dropdown-item" href="javascript:void(0)">Star</a>
+                    <hr class="mt-1 mb-1" style="background-color: white;">
+                    <a class="dropdown-item" href="javascript:void(0)">Compress to zip</a>
+                    <a class="dropdown-item" href="javascript:void(0)">Compress to rar</a>
+                    <a class="dropdown-item" href="javascript:void(0)">Compress to tar</a>
+                    <a class="dropdown-item" href="javascript:void(0)">Compress to tar.gz</a>
+                    <hr class="mt-1 mb-1" style="background-color: white;">
+                    <a class="dropdown-item" href="javascript:void(0)">Details</a>
                 </div>
             </div>
         </div>

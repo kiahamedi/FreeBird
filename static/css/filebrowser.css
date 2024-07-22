@@ -282,3 +282,14 @@
 .breadcrumb {
     background-color: #343a40 !important;
 }
+
+
+.file-manager-col-view .file-item-img,
+.file-manager-col-view .folderitem {
+    color: rgb(222, 175, 3) !important;
+}
+
+.file-manager-row-view .file-item-img,
+.file-manager-row-view .folderitem {
+    color: rgb(222, 175, 3) !important;
+}
