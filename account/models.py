@@ -24,7 +24,7 @@ class Object(models.Model):
     path = models.TextField(null=False, blank=False ,verbose_name="Path")
     trash = models.BooleanField(default=False, verbose_name="Is Trash")
     stared = models.BooleanField(default=False, verbose_name="Is Stared")
-    sharedTo = models.ManyToManyField(User, null=True, blank=True, related_name="sharedTo" ,verbose_name="Shared To")
+    sharedTo = models.ManyToManyField(User, related_name="sharedTo" ,verbose_name="Shared To")
     sharedLink = models.CharField(null=True, blank=True, max_length=200 ,verbose_name="Shared Link")
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
