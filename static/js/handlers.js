@@ -68,16 +68,16 @@ async function refreshObjects(folderId, folderName, modalflag=0){
     await fetch("/account/api/ourobjects/", requestOptions)
     .then((response)  =>  {
         if (response.status == 200){
-            toastMixinSuccess.fire({
-                animation: true,
-                title: "Refreshed Data"
-              });
+            // toastMixinSuccess.fire({
+            //     animation: true,
+            //     title: "Refreshed Data"
+            //   });
             return response.json()
         } else {
-            toastMixinDanger.fire({
-                animation: true,
-                title: "Error when refresh data!"
-              });
+            // toastMixinDanger.fire({
+            //     animation: true,
+            //     title: "Error when refresh data!"
+            //   });
         }
     }).then(data => {
         if (folderName != null && folderId != null){
@@ -185,3 +185,41 @@ function checkboxIsChecked(id)
         $(`#file-checkbox-${id}`).css({ 'opacity': '1' });
     }
 }
+
+
+function showInformation(id, type){
+    if (type == "folderItem"){
+        console.log("folderItem");
+        $("#main-modal-information-icon").html("");
+        $("#main-modal-information-icon").html('<span class="fas fa-folder text-warning fa-10x"></span>');
+    } else if (type == "imageItem"){
+        console.log("imageItem");
+        $("#main-modal-information-icon").html("");
+        $("#main-modal-information-icon").html('<img src="https://adminlte.io/themes/v3/dist/img/user1-128x128.jpg" alt="user-avatar" class="img-circle img-fluid">');
+    } else if (type == "pdfItem"){
+        console.log("pdfItem");
+        $("#main-modal-information-icon").html("");
+        $("#main-modal-information-icon").html('<span class="fas fa-file-pdf text-white fa-10x"></span>');
+    } else if (type == "compressedItem"){
+        console.log("compressedItem");
+        $("#main-modal-information-icon").html("");
+        $("#main-modal-information-icon").html('<span class="fas fa-file-archive text-white fa-10x"></span>');
+    } else if (type == "videoItem"){
+        console.log("videoItem");
+        $("#main-modal-information-icon").html("");
+        $("#main-modal-information-icon").html('<span class="fas fa-file-video text-white fa-10x"></span>');
+    } else if (type == "docItem"){
+        console.log("docItem");
+        $("#main-modal-information-icon").html("");
+        $("#main-modal-information-icon").html('<span class="fas fa-file-word text-white fa-10x"></span>');
+    } else if (type == "textItem"){
+        console.log("textItem");
+        $("#main-modal-information-icon").html("");
+        $("#main-modal-information-icon").html('<span class="fas fa-file-alt text-white fa-10x"></span>');
+    } else {
+        console.log("otherItem");
+        $("#main-modal-information-icon").html("");
+        $("#main-modal-information-icon").html('<span class="fas fa-file text-white fa-10x"></span>');
+    }
+    $('#modal-information').modal('toggle');
+};
