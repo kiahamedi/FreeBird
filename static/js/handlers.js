@@ -176,3 +176,12 @@ function backFromFolder(){
 
     }
 }
+
+function checkboxIsChecked(id)
+{   
+    if ($(`#file-input-checkbox-${id}`).is(':checked') != true){
+        $(`#file-checkbox-${id}`).css({ 'opacity': '0' });
+    } else {
+        $(`#file-checkbox-${id}`).css({ 'opacity': '1' });
+    }
+}

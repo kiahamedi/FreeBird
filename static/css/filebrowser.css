@@ -201,20 +201,21 @@
         width: calc(100% - 15rem);
     }
 }
-@media (min-width: 992px) {
-    .light-style .file-manager-col-view .file-item-checkbox,
-    .light-style .file-manager-col-view .file-item-actions {
-        opacity: 100%;
-    }
-    .light-style .file-manager-col-view .file-item:hover .file-item-checkbox,
-    .light-style .file-manager-col-view .file-item.focused .file-item-checkbox,
-    .light-style .file-manager-col-view .file-item.selected .file-item-checkbox,
-    .light-style .file-manager-col-view .file-item:hover .file-item-actions,
-    .light-style .file-manager-col-view .file-item.focused .file-item-actions,
-    .light-style .file-manager-col-view .file-item.selected .file-item-actions {
-        opacity: 1;
-    }
+
+.light-style .file-manager-col-view .file-item-checkbox,
+.light-style .file-manager-col-view .file-item-actions {
+    opacity: 0;
 }
+.light-style .file-manager-col-view .file-item:hover .file-item-checkbox, 
+.light-style .file-manager-col-view .file-item.focused .file-item-checkbox,
+.light-style .file-manager-col-view .file-item.selected .file-item-checkbox,
+.light-style .file-manager-col-view .file-item:hover .file-item-actions,
+.light-style .file-manager-col-view .file-item.focused .file-item-actions,
+.light-style .file-manager-col-view .file-item.selected .file-item-actions {
+    opacity: 1;
+}
+
+
 .material-style .file-item-name {
     color: #4e5155 !important;
 }
@@ -229,7 +230,7 @@
         width: calc(100% - 15rem);
     }
 }
-@media (min-width: 992px) {
+@media (min-width: 600px) {
     .material-style .file-manager-col-view .file-item-checkbox,
     .material-style .file-manager-col-view .file-item-actions {
         opacity: 0;
@@ -270,6 +271,7 @@
     .dark-style .file-manager-col-view .file-item.selected .file-item-actions {
         opacity: 1;
     }
+
 }
 
 .btn-dropdown {

@@ -16,8 +16,8 @@ function folderItem(id, name){
     var item_folder = `
         <div class="file-item" id="file-${id}">
             <div class="file-item-select-bg bg-primary"></div>
-            <label class="file-item-checkbox custom-control custom-checkbox">
-                <input type="checkbox" class="custom-control-input" />
+            <label class="file-item-checkbox custom-control custom-checkbox" id="file-checkbox-${id}">
+                <input type="checkbox" class="custom-control-input" id="file-input-checkbox-${id}" onclick=checkboxIsChecked(${id}) />
                 <span class="custom-control-label"></span>
             </label>
             <a href="javascript:openToFolder(${id},'${name}')"><div class="file-item-icon fas fa-folder text-secondary folderitem"></div></a>
@@ -57,8 +57,8 @@ function imageItem(id, name, url){
     var image_item = `
     <div class="file-item" id="file-${id}">
         <div class="file-item-select-bg bg-primary"></div>
-        <label class="file-item-checkbox custom-control custom-checkbox">
-            <input type="checkbox" class="custom-control-input" />
+        <label class="file-item-checkbox custom-control custom-checkbox" id="file-checkbox-${id}">
+            <input type="checkbox" class="custom-control-input" id="file-input-checkbox-${id}" onclick=checkboxIsChecked(${id}) />
             <span class="custom-control-label"></span>
         </label>
         
@@ -99,8 +99,8 @@ function pdfItem(id, name, url){
     var pdf_item = `
         <div class="file-item" id="file-${id}">
             <div class="file-item-select-bg bg-primary"></div>
-            <label class="file-item-checkbox custom-control custom-checkbox">
-                <input type="checkbox" class="custom-control-input" />
+            <label class="file-item-checkbox custom-control custom-checkbox" id="file-checkbox-${id}">
+                <input type="checkbox" class="custom-control-input" id="file-input-checkbox-${id}" onclick=checkboxIsChecked(${id}) />
                 <span class="custom-control-label"></span>
             </label>
             <a href="${url}"><div class="file-item-icon fas fa-file-pdf text-secondary"></div></a>
@@ -140,8 +140,8 @@ function compressedItem(id, name, url){
     var compressed_item = `
         <div class="file-item" id="file-${id}">
             <div class="file-item-select-bg bg-primary"></div>
-            <label class="file-item-checkbox custom-control custom-checkbox">
-                <input type="checkbox" class="custom-control-input" />
+            <label class="file-item-checkbox custom-control custom-checkbox" id="file-checkbox-${id}">
+                <input type="checkbox" class="custom-control-input" id="file-input-checkbox-${id}" onclick=checkboxIsChecked(${id}) />
                 <span class="custom-control-label"></span>
             </label>
             <a href="${url}"><div class="file-item-icon fas fa-file-archive text-secondary"></div></a>
@@ -180,8 +180,8 @@ function videoItem(id, name, url){
     var video_item = `
         <div class="file-item" id="file-${id}">
             <div class="file-item-select-bg bg-primary"></div>
-            <label class="file-item-checkbox custom-control custom-checkbox">
-                <input type="checkbox" class="custom-control-input" />
+            <label class="file-item-checkbox custom-control custom-checkbox" id="file-checkbox-${id}">
+                <input type="checkbox" class="custom-control-input" id="file-input-checkbox-${id}" onclick=checkboxIsChecked(${id}) />
                 <span class="custom-control-label"></span>
             </label>
             <a href="${url}"><div class="file-item-icon fas fa-file-video text-secondary"></div></a>
@@ -220,8 +220,8 @@ function docItem(id, name, url){
     var doc_item = `
         <div class="file-item" id="file-${id}">
             <div class="file-item-select-bg bg-primary"></div>
-            <label class="file-item-checkbox custom-control custom-checkbox">
-                <input type="checkbox" class="custom-control-input" />
+            <label class="file-item-checkbox custom-control custom-checkbox" id="file-checkbox-${id}">
+                <input type="checkbox" class="custom-control-input" id="file-input-checkbox-${id}" onclick=checkboxIsChecked(${id}) />
                 <span class="custom-control-label"></span>
             </label>
             <a href="${url}"><div class="file-item-icon fas fa-file-word text-secondary"></div></a>
@@ -260,8 +260,8 @@ function textItem(id, name, url){
     var text_item = `
         <div class="file-item" id="file-${id}">
             <div class="file-item-select-bg bg-primary"></div>
-            <label class="file-item-checkbox custom-control custom-checkbox">
-                <input type="checkbox" class="custom-control-input" />
+            <label class="file-item-checkbox custom-control custom-checkbox" id="file-checkbox-${id}">
+                <input type="checkbox" class="custom-control-input" id="file-input-checkbox-${id}" onclick=checkboxIsChecked(${id}) />
                 <span class="custom-control-label"></span>
             </label>
             <a href="${url}"><div class="file-item-icon fas fa-file-alt text-secondary"></div></a>
@@ -300,8 +300,8 @@ function otherItem(id, name, url){
     var other_item = `
         <div class="file-item" id="file-${id}">
             <div class="file-item-select-bg bg-primary"></div>
-            <label class="file-item-checkbox custom-control custom-checkbox">
-                <input type="checkbox" class="custom-control-input" />
+            <label class="file-item-checkbox custom-control custom-checkbox" id="file-checkbox-${id}">
+                <input type="checkbox" class="custom-control-input" id="file-input-checkbox-${id}" onclick=checkboxIsChecked(${id}) />
                 <span class="custom-control-label"></span>
             </label>
             <a href="${url}"><div class="file-item-icon fas fa-file text-secondary"></div></a>
