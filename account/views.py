@@ -157,3 +157,49 @@ class OurObjects(APIView):
         # print(alldata)
         
         return Response(content, status=status.HTTP_200_OK)
+
+
+
+class InformationObject(APIView):
+    authentication_classes = [JWTAuthentication]
+    permission_classes = [IsAuthenticated]
+
+    def post(self, request):
+        objectId = request.POST.get('objectId')
+        
+        target_object = Object.objects.get(id=objectId)
+        
+        target_type = 'File'
+        if target_object.iFile: 
+            target_type = "File" 
+        else: 
+            target_type = "Folder"
+        
+        imageUrl = None
+        if "image/" in target_object.iformat:
+            imageUrl = target_object.uploadFile.url
+        
+        shared = target_object.sharedTo.all().count()
+        if shared == 0:
+            shared = False
+        else:
+            shared = True
+            
+        data = {
+            'name' : target_object.name,
+            'owner' : target_object.owner.get_full_name(),
+            'type' : target_type,
+            'size' :  target_object.size,
+            'path' : target_object.path,
+            'shared' : shared,
+            'imageUrl' : imageUrl,
+            'created': target_object.created.strftime('%a %H:%M  %d/%m/%y'),
+            'updated' : target_object.updated.strftime('%a %H:%M  %d/%m/%y')
+        }
+        
+        content = {
+            'msg' : "Information object",
+            'data' : data,
+        }
+        
+        return Response(content, status=status.HTTP_200_OK)

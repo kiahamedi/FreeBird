@@ -102,7 +102,6 @@ async function refreshObjects(folderId, folderName, modalflag=0){
         data = data.data;
         // TODO: If data is empty check for try catch
         // Check for is root path or exsit in folder
-        console.log(data == []) 
         if (data.length == 0 || pwd != "/root") {
             $('#class-main-file-manager').append(backItem());  
         }
@@ -188,6 +187,7 @@ function checkboxIsChecked(id)
 
 
 function showInformation(id, type){
+    getInformationObject(id, type);
     if (type == "folderItem"){
         console.log("folderItem");
         $("#main-modal-information-icon").html("");
@@ -195,7 +195,7 @@ function showInformation(id, type){
     } else if (type == "imageItem"){
         console.log("imageItem");
         $("#main-modal-information-icon").html("");
-        $("#main-modal-information-icon").html('<img src="https://adminlte.io/themes/v3/dist/img/user1-128x128.jpg" alt="user-avatar" class="img-circle img-fluid">');
+        $("#main-modal-information-icon").html('<img src="https://adminlte.io/themes/v3/dist/img/user1-128x128.jpg" alt="user-avatar" class="img-circle img-fluid" id="modal-information-image" style="width:160px; height:160px">');
     } else if (type == "pdfItem"){
         console.log("pdfItem");
         $("#main-modal-information-icon").html("");
@@ -223,3 +223,63 @@ function showInformation(id, type){
     }
     $('#modal-information').modal('toggle');
 };
+
+
+
+function getInformationObject(id, type){
+
+    const myHeaders = new Headers();
+    myHeaders.append("Authorization", "Bearer " + getCookie('ja'));
+
+    const formdata = new FormData();
+    formdata.append("objectId", id);
+
+    const requestOptions = {
+        method: "POST",
+        headers: myHeaders,
+        body: formdata,
+        redirect: "follow"
+    };
+    
+    fetch("/account/api/information/", requestOptions)
+    .then((response)  =>  {
+        if (response.status == 200){
+            return response.json()
+        } else {
+            toastMixinDanger.fire({
+                animation: true,
+                title: "Error when get information data!"
+              });
+        }
+    }).then(data => {
+
+        data = data.data;
+        var size = data.size;
+        if (size == null || size == ""){
+            var size = "...";
+        }
+        if (type == "imageItem"){
+            console.log("data.imageUrl", data.imageUrl)
+            $("#modal-information-image").attr("src",data.imageUrl);
+        }
+        console.log(data.shared)
+        console.log(data.shared == true)
+        if (data.shared == true){
+            $("#modal-information-shared").html('<i class="fas fa-check text-success ml-2"></i>');
+        } else {
+            $("#modal-information-shared").html('<i class="fas fa-times text-danger ml-2"></i>');
+        }
+        
+        $("#modal-information-name").html(data.name);
+        $("#modal-information-type").html(data.type);
+        $("#modal-information-owner").html(data.owner);
+        $("#modal-information-path").html(data.path);
+        $("#modal-information-size").html(size);
+        $("#modal-information-created").html(data.created);
+        $("#modal-information-updated").html(data.updated);
+        
+    })
+    .catch((error) => {
+        console.error(error)
+    });
+}
