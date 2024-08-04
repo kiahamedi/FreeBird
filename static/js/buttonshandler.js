@@ -9,6 +9,12 @@ $(document).ready(function() {
         
     }); 
 
+    $("#button-modal-object-rename").click(function(){
+
+        sendRenameObject();
+        
+    }); 
+
     refreshObjects(null,null);
 
     
