@@ -225,7 +225,19 @@ class RenameObject(APIView):
             }
             return Response(content, status=status.HTTP_400_BAD_REQUEST)
         
-        target_object.name = objectNewName
+        targetName = objectNewName
+        index = 1
+        while True:
+            try:
+                existFolder = Object.objects.get(owner=request.user, iFolder=True, name=targetName)
+                if f"({index + 1})" in targetName:
+                    index += 1
+                else:
+                    targetName = f"{objectNewName} ({index + 1})"
+            except:
+                break
+        
+        target_object.name = targetName
         target_object.save()
         
         data = {
