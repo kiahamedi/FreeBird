@@ -198,3 +198,44 @@ class InformationObject(APIView):
         }
         
         return Response(content, status=status.HTTP_200_OK)
+
+
+
+class RenameObject(APIView):
+    authentication_classes = [JWTAuthentication]
+    permission_classes = [IsAuthenticated]
+
+    def post(self, request):
+        objectId = request.POST.get('objectId')
+        objectNewName = request.POST.get('objectNewName')
+        
+        try:
+            target_object = Object.objects.get(id=int(objectId), owner=request.user)
+        except:
+            content = {
+                'msg' : "404 Not Found",
+                'data' : None,
+            }
+            return Response(content, status=status.HTTP_404_NOT_FOUND)
+        
+        if objectNewName == "" or objectNewName is None:
+            content = {
+                'msg' : "400 Bad Request",
+                'data' : None,
+            }
+            return Response(content, status=status.HTTP_400_BAD_REQUEST)
+        
+        target_object.name = objectNewName
+        target_object.save()
+        
+        data = {
+            'id': target_object.id,
+            'name': target_object.name
+        }
+        
+        content = {
+            'msg' : "Renamed was successfull!",
+            'data' : data,
+        }
+        
+        return Response(content, status=status.HTTP_200_OK)

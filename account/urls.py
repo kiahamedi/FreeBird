@@ -19,6 +19,7 @@ urlpatterns += [
     path('api/createfolder/', account_views.CreateFolder.as_view()),
     path('api/ourobjects/', account_views.OurObjects.as_view()),
     path('api/information/', account_views.InformationObject.as_view()),
+    path('api/rename/', account_views.RenameObject.as_view()),
     
     path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
     path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
