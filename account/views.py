@@ -42,7 +42,6 @@ class UploadFile(APIView):
         userFile = request.FILES.get('user-file')
         userFilePath = request.POST.get('user-file-path')
         userFileType = request.POST.get('user-file-type')
-        print(request.POST)
         owner = request.user
         userFileName = userFile.name
         userFileSize = convert_size(userFile.size)
@@ -120,11 +119,9 @@ class OurObjects(APIView):
         
         if folderName == 'null':
             objects = Object.objects.filter(owner=owner, path=pwd).exclude(trash=True).order_by('-iFolder')
-            print(pwd)
         else:
             targetPWD = f"{pwd}/{folderName}"
             objects = Object.objects.filter(owner=owner, path=targetPWD).exclude(trash=True).order_by('-iFolder')
-            print(targetPWD)
         
         alldata=[]
         
@@ -153,8 +150,6 @@ class OurObjects(APIView):
             'data' : alldata,
             
         }
-        
-        # print(alldata)
         
         return Response(content, status=status.HTTP_200_OK)
 
