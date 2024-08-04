@@ -29,7 +29,7 @@ function folderItem(id, name){
                 <button type="button" class="btn btn-dropdown btn-sm  icon-btn borderless md-btn-flat hide-arrow dropdown-toggle" data-toggle="dropdown"><i class="ion ion-ios-more"></i></button>
                 <div class="dropdown-menu dropdown-menu-right">
                     <a class="dropdown-item" href="javascript:javascript:openToFolder(${id},'${name}')">Open to Folder</a>
-                    <a class="dropdown-item" href="javascript:void(0)">Rename</a>
+                    <a class="dropdown-item" href="javascript:renameObject(${id})">Rename</a>
                     <a class="dropdown-item" href="javascript:void(0)">Move</a>
                     <a class="dropdown-item" href="javascript:void(0)">Copy</a>
                     <a class="dropdown-item" href="javascript:void(0)">Remove</a>
@@ -71,7 +71,7 @@ function imageItem(id, name, url){
             <button type="button" class="btn btn-dropdown btn-sm  icon-btn borderless md-btn-flat hide-arrow dropdown-toggle" data-toggle="dropdown"><i class="ion ion-ios-more"></i></button>
             <div class="dropdown-menu dropdown-menu-right">
                     <a class="dropdown-item" href="${url}" target="_blank">Open</a>
-                    <a class="dropdown-item" href="javascript:void(0)">Rename</a>
+                    <a class="dropdown-item" href="javascript:renameObject(${id})">Rename</a>
                     <a class="dropdown-item" href="javascript:void(0)">Move</a>
                     <a class="dropdown-item" href="javascript:void(0)">Copy</a>
                     <a class="dropdown-item" href="javascript:void(0)">Remove</a>
@@ -112,7 +112,7 @@ function pdfItem(id, name, url){
                 <button type="button" class="btn btn-dropdown btn-sm  icon-btn borderless md-btn-flat hide-arrow dropdown-toggle" data-toggle="dropdown"><i class="ion ion-ios-more"></i></button>
                 <div class="dropdown-menu dropdown-menu-right">
                     <a class="dropdown-item" href="${url}" target="_blank">Open</a>
-                    <a class="dropdown-item" href="javascript:void(0)">Rename</a>
+                    <a class="dropdown-item" href="javascript:renameObject(${id})">Rename</a>
                     <a class="dropdown-item" href="javascript:void(0)">Move</a>
                     <a class="dropdown-item" href="javascript:void(0)">Copy</a>
                     <a class="dropdown-item" href="javascript:void(0)">Remove</a>
@@ -153,7 +153,7 @@ function compressedItem(id, name, url){
                 <button type="button" class="btn btn-dropdown btn-sm  icon-btn borderless md-btn-flat hide-arrow dropdown-toggle" data-toggle="dropdown"><i class="ion ion-ios-more"></i></button>
                 <div class="dropdown-menu dropdown-menu-right">
                     <a class="dropdown-item" href="${url}" target="_blank">Open</a>
-                    <a class="dropdown-item" href="javascript:void(0)">Rename</a>
+                    <a class="dropdown-item" href="javascript:renameObject(${id})">Rename</a>
                     <a class="dropdown-item" href="javascript:void(0)">Move</a>
                     <a class="dropdown-item" href="javascript:void(0)">Copy</a>
                     <a class="dropdown-item" href="javascript:void(0)">Remove</a>
@@ -193,7 +193,7 @@ function videoItem(id, name, url){
                 <button type="button" class="btn btn-dropdown btn-sm  icon-btn borderless md-btn-flat hide-arrow dropdown-toggle" data-toggle="dropdown"><i class="ion ion-ios-more"></i></button>
                 <div class="dropdown-menu dropdown-menu-right">
                     <a class="dropdown-item" href="${url}" target="_blank">Open</a>
-                    <a class="dropdown-item" href="javascript:void(0)">Rename</a>
+                    <a class="dropdown-item" href="javascript:renameObject(${id})">Rename</a>
                     <a class="dropdown-item" href="javascript:void(0)">Move</a>
                     <a class="dropdown-item" href="javascript:void(0)">Copy</a>
                     <a class="dropdown-item" href="javascript:void(0)">Remove</a>
@@ -233,7 +233,7 @@ function docItem(id, name, url){
                 <button type="button" class="btn btn-dropdown btn-sm  icon-btn borderless md-btn-flat hide-arrow dropdown-toggle" data-toggle="dropdown"><i class="ion ion-ios-more"></i></button>
                 <div class="dropdown-menu dropdown-menu-right">
                     <a class="dropdown-item" href="${url}" target="_blank">Open</a>
-                    <a class="dropdown-item" href="javascript:void(0)">Rename</a>
+                    <a class="dropdown-item" href="javascript:renameObject(${id})">Rename</a>
                     <a class="dropdown-item" href="javascript:void(0)">Move</a>
                     <a class="dropdown-item" href="javascript:void(0)">Copy</a>
                     <a class="dropdown-item" href="javascript:void(0)">Remove</a>
@@ -273,7 +273,7 @@ function textItem(id, name, url){
                 <button type="button" class="btn btn-dropdown btn-sm  icon-btn borderless md-btn-flat hide-arrow dropdown-toggle" data-toggle="dropdown"><i class="ion ion-ios-more"></i></button>
                 <div class="dropdown-menu dropdown-menu-right">
                     <a class="dropdown-item" href="${url}" target="_blank">Open</a>
-                    <a class="dropdown-item" href="javascript:void(0)">Rename</a>
+                    <a class="dropdown-item" href="javascript:renameObject(${id})">Rename</a>
                     <a class="dropdown-item" href="javascript:void(0)">Move</a>
                     <a class="dropdown-item" href="javascript:void(0)">Copy</a>
                     <a class="dropdown-item" href="javascript:void(0)">Remove</a>
@@ -313,7 +313,7 @@ function otherItem(id, name, url){
                 <button type="button" class="btn btn-dropdown btn-sm  icon-btn borderless md-btn-flat hide-arrow dropdown-toggle" data-toggle="dropdown"><i class="ion ion-ios-more"></i></button>
                 <div class="dropdown-menu dropdown-menu-right">
                     <a class="dropdown-item" href="${url}" target="_blank">Open</a>
-                    <a class="dropdown-item" href="javascript:void(0)">Rename</a>
+                    <a class="dropdown-item" href="javascript:renameObject(${id})">Rename</a>
                     <a class="dropdown-item" href="javascript:void(0)">Move</a>
                     <a class="dropdown-item" href="javascript:void(0)">Copy</a>
                     <a class="dropdown-item" href="javascript:void(0)">Remove</a>
