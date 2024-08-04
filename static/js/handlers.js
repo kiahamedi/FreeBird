@@ -283,3 +283,55 @@ function getInformationObject(id, type){
         console.error(error)
     });
 }
+
+function renameObject(id){
+    $('#input-text-modal-objectid').val(id);
+    $('#input-text-modal-newname').val($("#file-item-name-" + id).text().trim());
+    $('#modal-object-rename').modal('toggle');
+}
+
+function sendRenameObject(){
+    var objID = $('#input-text-modal-objectid').val();
+    var objName = $('#input-text-modal-newname').val();
+
+    const myHeaders = new Headers();
+    myHeaders.append("Authorization", "Bearer " + getCookie('ja'));
+
+    const formdata = new FormData();
+    formdata.append("objectId", objID);
+    formdata.append("objectNewName", objName);
+
+    const requestOptions = {
+        method: "POST",
+        headers: myHeaders,
+        body: formdata,
+        redirect: "follow"
+    };
+    
+    fetch("/account/api/rename/", requestOptions)
+    .then((response)  =>  {
+        if (response.status == 200){
+            return response.json()
+        } else {
+            toastMixinDanger.fire({
+                animation: true,
+                title: "Exist Problem!"
+              });
+        }
+    }).then(data => {
+
+        data = data.data;
+        var obid = data.id;
+        var obname = data.name;
+        $("#file-item-name-" + obid).text(obname);
+        $('#input-text-modal-objectid').val("");
+        $('#input-text-modal-newname').val("");
+        $('#modal-object-rename').modal('toggle');
+        
+    })
+    .catch((error) => {
+        console.error(error)
+    });
+
+
+}

@@ -236,7 +236,7 @@ class RenameObject(APIView):
                     targetName = f"{objectNewName} ({index + 1})"
             except:
                 break
-        
+
         target_object.name = targetName
         target_object.save()
         
