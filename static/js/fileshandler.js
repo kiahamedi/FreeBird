@@ -4,7 +4,7 @@ function backItem(){
         <a href="javascript:backFromFolder()">
             <div class="file-item-icon file-item-level-up fas fa-level-up-alt text-secondary"></div>
         </a>
-        <a href="javascript:backFromFolder()" class="file-item-name">
+        <a href="javascript:backFromFolder()" class="file-item-name" id="file-item-name-${id}">
             ..
         </a>
     </div>
@@ -21,7 +21,7 @@ function folderItem(id, name){
                 <span class="custom-control-label"></span>
             </label>
             <a href="javascript:openToFolder(${id},'${name}')"><div class="file-item-icon fas fa-folder text-secondary folderitem"></div></a>
-            <a href="javascript:openToFolder(${id},'${name}')" class="file-item-name">
+            <a href="javascript:openToFolder(${id},'${name}')" class="file-item-name" id="file-item-name-${id}">
                 ${name}
             </a>
             <div class="file-item-changed">02/13/2018</div>
@@ -63,7 +63,7 @@ function imageItem(id, name, url){
         </label>
         
         <a href="${url}" target="_blank"><div class="file-item-img" style="background-image: url(${url});"></div></a>
-        <a href="${url}" target="_blank" class="file-item-name">
+        <a href="${url}" target="_blank" class="file-item-name" id="file-item-name-${id}">
             ${name}
         </a>
         <div class="file-item-changed">02/20/2018</div>
@@ -104,7 +104,7 @@ function pdfItem(id, name, url){
                 <span class="custom-control-label"></span>
             </label>
             <a href="${url}"><div class="file-item-icon fas fa-file-pdf text-secondary"></div></a>
-            <a href="${url}" class="file-item-name">
+            <a href="${url}" class="file-item-name" id="file-item-name-${id}">
                 ${name}
             </a>
             <div class="file-item-changed">02/25/2018</div>
@@ -145,7 +145,7 @@ function compressedItem(id, name, url){
                 <span class="custom-control-label"></span>
             </label>
             <a href="${url}"><div class="file-item-icon fas fa-file-archive text-secondary"></div></a>
-            <a href="${url}" class="file-item-name">
+            <a href="${url}" class="file-item-name" id="file-item-name-${id}">
                  ${name}
             </a>
             <div class="file-item-changed">02/16/2018</div>
@@ -185,7 +185,7 @@ function videoItem(id, name, url){
                 <span class="custom-control-label"></span>
             </label>
             <a href="${url}"><div class="file-item-icon fas fa-file-video text-secondary"></div></a>
-            <a href="${url}" class="file-item-name">
+            <a href="${url}" class="file-item-name" id="file-item-name-${id}">
                  ${name}
             </a>
             <div class="file-item-changed">02/16/2018</div>
@@ -225,7 +225,7 @@ function docItem(id, name, url){
                 <span class="custom-control-label"></span>
             </label>
             <a href="${url}"><div class="file-item-icon fas fa-file-word text-secondary"></div></a>
-            <a href="${url}" class="file-item-name">
+            <a href="${url}" class="file-item-name" id="file-item-name-${id}">
                  ${name}
             </a>
             <div class="file-item-changed">02/16/2018</div>
@@ -265,7 +265,7 @@ function textItem(id, name, url){
                 <span class="custom-control-label"></span>
             </label>
             <a href="${url}"><div class="file-item-icon fas fa-file-alt text-secondary"></div></a>
-            <a href="${url}" class="file-item-name">
+            <a href="${url}" class="file-item-name" id="file-item-name-${id}">
                  ${name}
             </a>
             <div class="file-item-changed">02/16/2018</div>
@@ -305,7 +305,7 @@ function otherItem(id, name, url){
                 <span class="custom-control-label"></span>
             </label>
             <a href="${url}"><div class="file-item-icon fas fa-file text-secondary"></div></a>
-            <a href="${url}" class="file-item-name">
+            <a href="${url}" class="file-item-name" id="file-item-name-${id}">
                  ${name}
             </a>
             <div class="file-item-changed">02/16/2018</div>
