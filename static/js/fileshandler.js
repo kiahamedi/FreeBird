@@ -33,7 +33,6 @@ function folderItem(id, name){
                     <a class="dropdown-item" href="javascript:void(0)">Move</a>
                     <a class="dropdown-item" href="javascript:void(0)">Copy</a>
                     <a class="dropdown-item" href="javascript:void(0)">Remove</a>
-                    <a class="dropdown-item" href="javascript:void(0)">Download</a>
                     <hr class="mt-1 mb-1" style="background-color: white;">
                     <a class="dropdown-item" href="javascript:void(0)">Share To</a>
                     <a class="dropdown-item" href="javascript:void(0)">Generate Link</a>
