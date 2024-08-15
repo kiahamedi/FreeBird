@@ -28,8 +28,8 @@
       <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
         <!-- Add icons to the links using the .nav-icon class
              with font-awesome or any other icon font library -->
-        <li class="nav-item menu-open">
-          <a href="{% url 'account:home'%}" class="nav-link active">
+        <li class="nav-item">
+          <a href="{% url 'account:home'%}" class="nav-link {% if request.path == "/account/" %}active{% endif %}">
             <i class="nav-icon fas fa-cloud"></i>
             <p>
               My Drive
@@ -65,7 +65,7 @@
           </li>
 
           <li class="nav-item">
-            <a href="{% url 'account:home'%}" class="nav-link">
+            <a href="{% url 'account:trash'%}" class="nav-link {% if request.path == "/account/trash/" %}active{% endif %}">
               <i class="nav-icon fas fa-trash"></i>
               <p>
                 Trash
