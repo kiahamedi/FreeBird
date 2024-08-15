@@ -251,3 +251,38 @@ class RenameObject(APIView):
         }
         
         return Response(content, status=status.HTTP_200_OK)
+
+
+
+
+
+
+class MoveToTrashObject(APIView):
+    authentication_classes = [JWTAuthentication]
+    permission_classes = [IsAuthenticated]
+
+    def post(self, request):
+        objectId = request.POST.get('objectId')
+        
+        try:
+            target_object = Object.objects.get(id=int(objectId), owner=request.user)
+        except:
+            content = {
+                'msg' : "404 Not Found",
+                'data' : None,
+            }
+            return Response(content, status=status.HTTP_404_NOT_FOUND)
+
+        target_object.trash = True
+        target_object.save()
+        
+        data = {
+            'id': target_object.id
+        }
+        
+        content = {
+            'msg' : "Removed was successfull!",
+            'data' : data,
+        }
+        
+        return Response(content, status=status.HTTP_200_OK)
