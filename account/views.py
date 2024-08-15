@@ -286,6 +286,12 @@ class MoveToTrashObject(APIView):
 
     def post(self, request):
         objectId = request.POST.get('objectId')
+        objectRestoreStatus = request.POST.get('objectRestoreStatus')
+        
+        if objectRestoreStatus == '1' or objectRestoreStatus == 1:
+            isTrashStatus = False
+        elif objectRestoreStatus == '0' or objectRestoreStatus == 0:
+            isTrashStatus = True
         
         try:
             target_object = Object.objects.get(id=int(objectId), owner=request.user)
@@ -295,8 +301,9 @@ class MoveToTrashObject(APIView):
                 'data' : None,
             }
             return Response(content, status=status.HTTP_404_NOT_FOUND)
+        
 
-        target_object.trash = True
+        target_object.trash = isTrashStatus
         target_object.save()
         
         data = {

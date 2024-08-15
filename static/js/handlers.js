@@ -362,6 +362,7 @@ function submitItemToTrash(){
 
     const formdata = new FormData();
     formdata.append("objectId", objID);
+    formdata.append("objectRestoreStatus", 0);
 
     const requestOptions = {
         method: "POST",
