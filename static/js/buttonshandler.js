@@ -22,6 +22,12 @@ $(document).ready(function() {
         
     }); 
 
+    $("#button-modal-object-remove-for-ever").click(function(){
+
+        submitRemoveItemForEver();
+        
+    }); 
+
     refreshObjects(null,null);
 
     

@@ -8,6 +8,7 @@ from rest_framework.permissions import IsAuthenticated
 from rest_framework_simplejwt.authentication import JWTAuthentication
 from rest_framework_simplejwt.tokens import RefreshToken
 from extensions.utils import convert_size
+import os
 
 
 # Create your views here.
@@ -316,3 +317,42 @@ class MoveToTrashObject(APIView):
         }
         
         return Response(content, status=status.HTTP_200_OK)
+
+
+
+class RemoveItemForEver(APIView):
+    authentication_classes = [JWTAuthentication]
+    permission_classes = [IsAuthenticated]
+
+    def post(self, request):
+        objectId = request.POST.get('objectId')
+        
+        print(objectId)
+        try:
+            target_object = Object.objects.get(id=int(objectId), owner=request.user, trash=True)
+        except:
+            content = {
+                'msg' : "404 Not Found",
+                'data' : None,
+            }
+            return Response(content, status=status.HTTP_404_NOT_FOUND)
+        
+        targetID = target_object.id
+        
+        try:
+            os.remove(target_object.uploadFile.path)
+        except:
+            pass
+        
+        target_object.delete()
+        
+        data = {
+            'id': targetID
+        }
+        
+        content = {
+            'msg' : "Removed was successfull!",
+            'data' : data,
+        }
+        
+        return Response(content, status=status.HTTP_201_CREATED)

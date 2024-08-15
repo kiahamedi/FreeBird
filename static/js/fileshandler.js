@@ -64,8 +64,8 @@ function folderItem(id, name){
             <div class="file-item-actions btn-group">
                 <button type="button" class="btn btn-dropdown btn-sm  icon-btn borderless md-btn-flat hide-arrow dropdown-toggle" data-toggle="dropdown"><i class="ion ion-ios-more"></i></button>
                 <div class="dropdown-menu dropdown-menu-right">
-                    <a class="dropdown-item" href="javascript:void(0)">Restore</a>
-                    <a class="dropdown-item" href="javascript:void(0)">Empty</a>
+                    <a class="dropdown-item" href="javascript:restoreItemfromTrash(${id})">Restore</a>
+                    <a class="dropdown-item" href="javascript:removeItemForEver(${id})">Empty</a>
                 </div>
             </div>
         </div>
@@ -132,8 +132,8 @@ function imageItem(id, name, url){
             <div class="file-item-actions btn-group">
                 <button type="button" class="btn btn-dropdown btn-sm  icon-btn borderless md-btn-flat hide-arrow dropdown-toggle" data-toggle="dropdown"><i class="ion ion-ios-more"></i></button>
                 <div class="dropdown-menu dropdown-menu-right">
-                    <a class="dropdown-item" href="javascript:void(0)">Restore</a>
-                    <a class="dropdown-item" href="javascript:void(0)">Empty</a>
+                    <a class="dropdown-item" href="javascript:restoreItemfromTrash(${id})">Restore</a>
+                    <a class="dropdown-item" href="javascript:removeItemForEver(${id})">Empty</a>
                 </div>
             </div>
         </div>
@@ -198,8 +198,8 @@ function pdfItem(id, name, url){
             <div class="file-item-actions btn-group">
                 <button type="button" class="btn btn-dropdown btn-sm  icon-btn borderless md-btn-flat hide-arrow dropdown-toggle" data-toggle="dropdown"><i class="ion ion-ios-more"></i></button>
                 <div class="dropdown-menu dropdown-menu-right">
-                    <a class="dropdown-item" href="javascript:void(0)">Restore</a>
-                    <a class="dropdown-item" href="javascript:void(0)">Empty</a>
+                    <a class="dropdown-item" href="javascript:restoreItemfromTrash(${id})">Restore</a>
+                    <a class="dropdown-item" href="javascript:removeItemForEver(${id})">Empty</a>
                 </div>
             </div>
         </div>
@@ -264,8 +264,8 @@ function compressedItem(id, name, url){
             <div class="file-item-actions btn-group">
                 <button type="button" class="btn btn-dropdown btn-sm  icon-btn borderless md-btn-flat hide-arrow dropdown-toggle" data-toggle="dropdown"><i class="ion ion-ios-more"></i></button>
                 <div class="dropdown-menu dropdown-menu-right">
-                    <a class="dropdown-item" href="javascript:void(0)">Restore</a>
-                    <a class="dropdown-item" href="javascript:void(0)">Empty</a>
+                    <a class="dropdown-item" href="javascript:restoreItemfromTrash(${id})">Restore</a>
+                    <a class="dropdown-item" href="javascript:removeItemForEver(${id})">Empty</a>
                 </div>
             </div>
         </div>
@@ -329,8 +329,8 @@ function videoItem(id, name, url){
             <div class="file-item-actions btn-group">
                 <button type="button" class="btn btn-dropdown btn-sm  icon-btn borderless md-btn-flat hide-arrow dropdown-toggle" data-toggle="dropdown"><i class="ion ion-ios-more"></i></button>
                 <div class="dropdown-menu dropdown-menu-right">
-                    <a class="dropdown-item" href="javascript:void(0)">Restore</a>
-                    <a class="dropdown-item" href="javascript:void(0)">Empty</a>
+                    <a class="dropdown-item" href="javascript:restoreItemfromTrash(${id})">Restore</a>
+                    <a class="dropdown-item" href="javascript:removeItemForEver(${id})">Empty</a>
                 </div>
             </div>
         </div>
@@ -394,8 +394,8 @@ function docItem(id, name, url){
             <div class="file-item-actions btn-group">
                 <button type="button" class="btn btn-dropdown btn-sm  icon-btn borderless md-btn-flat hide-arrow dropdown-toggle" data-toggle="dropdown"><i class="ion ion-ios-more"></i></button>
                 <div class="dropdown-menu dropdown-menu-right">
-                    <a class="dropdown-item" href="javascript:void(0)">Restore</a>
-                    <a class="dropdown-item" href="javascript:void(0)">Empty</a>
+                    <a class="dropdown-item" href="javascript:restoreItemfromTrash(${id})">Restore</a>
+                    <a class="dropdown-item" href="javascript:removeItemForEver(${id})">Empty</a>
                 </div>
             </div>
         </div>
@@ -459,8 +459,8 @@ function textItem(id, name, url){
             <div class="file-item-actions btn-group">
                 <button type="button" class="btn btn-dropdown btn-sm  icon-btn borderless md-btn-flat hide-arrow dropdown-toggle" data-toggle="dropdown"><i class="ion ion-ios-more"></i></button>
                 <div class="dropdown-menu dropdown-menu-right">
-                    <a class="dropdown-item" href="javascript:void(0)">Restore</a>
-                    <a class="dropdown-item" href="javascript:void(0)">Empty</a>
+                    <a class="dropdown-item" href="javascript:restoreItemfromTrash(${id})">Restore</a>
+                    <a class="dropdown-item" href="javascript:removeItemForEver(${id})">Empty</a>
                 </div>
             </div>
         </div>
@@ -524,8 +524,8 @@ function otherItem(id, name, url){
             <div class="file-item-actions btn-group">
                 <button type="button" class="btn btn-dropdown btn-sm  icon-btn borderless md-btn-flat hide-arrow dropdown-toggle" data-toggle="dropdown"><i class="ion ion-ios-more"></i></button>
                 <div class="dropdown-menu dropdown-menu-right">
-                    <a class="dropdown-item" href="javascript:void(0)">Restore</a>
-                    <a class="dropdown-item" href="javascript:void(0)">Empty</a>
+                    <a class="dropdown-item" href="javascript:restoreItemfromTrash(${id})">Restore</a>
+                    <a class="dropdown-item" href="javascript:removeItemForEver(${id})">Empty</a>
                 </div>
             </div>
         </div>
