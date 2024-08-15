@@ -13,7 +13,8 @@ urlpatterns = [
 ]
 
 urlpatterns += [
-    path('', account_views.home, name="home"),
+    path('', account_views.home_or_trash, name="home"),
+    path('trash/', account_views.home_or_trash, name="trash"),
     path('profile/', account_views.profile, name="profile"),
     path('api/upload/', account_views.UploadFile.as_view()),
     path('api/createfolder/', account_views.CreateFolder.as_view()),

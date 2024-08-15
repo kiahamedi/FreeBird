@@ -13,16 +13,31 @@ from extensions.utils import convert_size
 # Create your views here.
 
 @login_required
-def home(request):
+def home_or_trash(request):
+    
+    page = 'My Drive'
+    
+    isTrash = False
+    if "trash" in request.path:
+        isTrash = True
+        page = 'Trash'
+
     context = {
-        
+        'page' : page
     }
+    
     response = render(request, 'account/home.html', context)
     refresh = RefreshToken.for_user(request.user)
     response.set_cookie("pwd" , '/root')
     response.set_cookie("pwd_id" , '/root')
     response.set_cookie("jr" , str(refresh))
     response.set_cookie("ja" , str(refresh.access_token))
+    
+    if isTrash:
+        response.set_cookie("is_trash" , 1)
+    else:
+        response.set_cookie("is_trash" , 0)
+        
     return response
 
 
@@ -115,14 +130,22 @@ class OurObjects(APIView):
         pwd = request.POST.get('pwd')
         folderId = request.POST.get('folderId')
         folderName = request.POST.get('folderName')
+        isTrash = request.POST.get('isTrash')
         owner = request.user
         
-        if folderName == 'null':
-            objects = Object.objects.filter(owner=owner, path=pwd).exclude(trash=True).order_by('-iFolder')
+        if isTrash == 0 or isTrash == '0':
+            if folderName == 'null':
+                objects = Object.objects.filter(owner=owner, path=pwd).exclude(trash=True).order_by('-iFolder')
+            else:
+                targetPWD = f"{pwd}/{folderName}"
+                objects = Object.objects.filter(owner=owner, path=targetPWD).exclude(trash=True).order_by('-iFolder')
         else:
-            targetPWD = f"{pwd}/{folderName}"
-            objects = Object.objects.filter(owner=owner, path=targetPWD).exclude(trash=True).order_by('-iFolder')
-        
+            if folderName == 'null':
+                objects = Object.objects.filter(owner=owner, path=pwd).exclude(trash=False).order_by('-iFolder')
+            else:
+                targetPWD = f"{pwd}/{folderName}"
+                objects = Object.objects.filter(owner=owner, path=targetPWD).exclude(trash=False).order_by('-iFolder')
+                
         alldata=[]
         
         for data in objects:
