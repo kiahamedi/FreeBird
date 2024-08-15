@@ -106,9 +106,12 @@ async function refreshObjects(folderId, folderName, modalflag=0){
         data = data.data;
         // TODO: If data is empty check for try catch
         // Check for is root path or exsit in folder
-        if (data.length == 0 || pwd != "/root") {
-            $('#class-main-file-manager').append(backItem());  
+        if (isTrash == '0' || isTrash == 0){
+            if (data.length == 0 || pwd != "/root") {
+                $('#class-main-file-manager').append(backItem());  
+            }
         }
+        
 
         for (i=0; i<data.length; i++){
             // console.log(data[i])
