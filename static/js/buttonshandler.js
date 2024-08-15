@@ -15,6 +15,13 @@ $(document).ready(function() {
         
     }); 
 
+
+    $("#button-modal-object-move-to-trash").click(function(){
+
+        submitItemToTrash();
+        
+    }); 
+
     refreshObjects(null,null);
 
     

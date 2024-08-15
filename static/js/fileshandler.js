@@ -29,11 +29,11 @@ function folderItem(id, name){
                 <button type="button" class="btn btn-dropdown btn-sm  icon-btn borderless md-btn-flat hide-arrow dropdown-toggle" data-toggle="dropdown"><i class="ion ion-ios-more"></i></button>
                 <div class="dropdown-menu dropdown-menu-right">
                     <a class="dropdown-item" href="javascript:javascript:openToFolder(${id},'${name}')">Open to Folder</a>
+                    <a class="dropdown-item" href="javascript:void(0)">Download</a>
                     <a class="dropdown-item" href="javascript:renameObject(${id})">Rename</a>
                     <a class="dropdown-item" href="javascript:void(0)">Move</a>
                     <a class="dropdown-item" href="javascript:void(0)">Copy</a>
-                    <a class="dropdown-item" href="javascript:void(0)">Move to Trash</a>
-                    <a class="dropdown-item" href="javascript:void(0)">Download</a>
+                    <a class="dropdown-item" href="javascript:moveItemToTrash(${id})">Move to Trash</a>
                     <hr class="mt-1 mb-1" style="background-color: white;">
                     <a class="dropdown-item" href="javascript:void(0)">Share To</a>
                     <a class="dropdown-item" href="javascript:void(0)">Generate Link</a>
@@ -71,11 +71,11 @@ function imageItem(id, name, url){
             <button type="button" class="btn btn-dropdown btn-sm  icon-btn borderless md-btn-flat hide-arrow dropdown-toggle" data-toggle="dropdown"><i class="ion ion-ios-more"></i></button>
             <div class="dropdown-menu dropdown-menu-right">
                     <a class="dropdown-item" href="${url}" target="_blank">Open</a>
+                    <a class="dropdown-item" href="javascript:void(0)">Download</a>
                     <a class="dropdown-item" href="javascript:renameObject(${id})">Rename</a>
                     <a class="dropdown-item" href="javascript:void(0)">Move</a>
                     <a class="dropdown-item" href="javascript:void(0)">Copy</a>
-                    <a class="dropdown-item" href="javascript:void(0)">Move to Trash</a>
-                    <a class="dropdown-item" href="javascript:void(0)">Download</a>
+                    <a class="dropdown-item" href="javascript:moveItemToTrash(${id})">Move to Trash</a>
                     <hr class="mt-1 mb-1" style="background-color: white;">
                     <a class="dropdown-item" href="javascript:void(0)">Share To</a>
                     <a class="dropdown-item" href="javascript:void(0)">Generate Link</a>
@@ -112,11 +112,11 @@ function pdfItem(id, name, url){
                 <button type="button" class="btn btn-dropdown btn-sm  icon-btn borderless md-btn-flat hide-arrow dropdown-toggle" data-toggle="dropdown"><i class="ion ion-ios-more"></i></button>
                 <div class="dropdown-menu dropdown-menu-right">
                     <a class="dropdown-item" href="${url}" target="_blank">Open</a>
+                    <a class="dropdown-item" href="javascript:void(0)">Download</a>
                     <a class="dropdown-item" href="javascript:renameObject(${id})">Rename</a>
                     <a class="dropdown-item" href="javascript:void(0)">Move</a>
                     <a class="dropdown-item" href="javascript:void(0)">Copy</a>
-                    <a class="dropdown-item" href="javascript:void(0)">Move to Trash</a>
-                    <a class="dropdown-item" href="javascript:void(0)">Download</a>
+                    <a class="dropdown-item" href="javascript:moveItemToTrash(${id})">Move to Trash</a>
                     <hr class="mt-1 mb-1" style="background-color: white;">
                     <a class="dropdown-item" href="javascript:void(0)">Share To</a>
                     <a class="dropdown-item" href="javascript:void(0)">Generate Link</a>
@@ -153,11 +153,11 @@ function compressedItem(id, name, url){
                 <button type="button" class="btn btn-dropdown btn-sm  icon-btn borderless md-btn-flat hide-arrow dropdown-toggle" data-toggle="dropdown"><i class="ion ion-ios-more"></i></button>
                 <div class="dropdown-menu dropdown-menu-right">
                     <a class="dropdown-item" href="${url}" target="_blank">Open</a>
+                    <a class="dropdown-item" href="javascript:void(0)">Download</a>
                     <a class="dropdown-item" href="javascript:renameObject(${id})">Rename</a>
                     <a class="dropdown-item" href="javascript:void(0)">Move</a>
                     <a class="dropdown-item" href="javascript:void(0)">Copy</a>
-                    <a class="dropdown-item" href="javascript:void(0)">Move to Trash</a>
-                    <a class="dropdown-item" href="javascript:void(0)">Download</a>
+                    <a class="dropdown-item" href="javascript:moveItemToTrash(${id})">Move to Trash</a>
                     <hr class="mt-1 mb-1" style="background-color: white;">
                     <a class="dropdown-item" href="javascript:void(0)">Share To</a>
                     <a class="dropdown-item" href="javascript:void(0)">Generate Link</a>
@@ -193,11 +193,11 @@ function videoItem(id, name, url){
                 <button type="button" class="btn btn-dropdown btn-sm  icon-btn borderless md-btn-flat hide-arrow dropdown-toggle" data-toggle="dropdown"><i class="ion ion-ios-more"></i></button>
                 <div class="dropdown-menu dropdown-menu-right">
                     <a class="dropdown-item" href="${url}" target="_blank">Open</a>
+                    <a class="dropdown-item" href="javascript:void(0)">Download</a>
                     <a class="dropdown-item" href="javascript:renameObject(${id})">Rename</a>
                     <a class="dropdown-item" href="javascript:void(0)">Move</a>
                     <a class="dropdown-item" href="javascript:void(0)">Copy</a>
-                    <a class="dropdown-item" href="javascript:void(0)">Move to Trash</a>
-                    <a class="dropdown-item" href="javascript:void(0)">Download</a>
+                    <a class="dropdown-item" href="javascript:moveItemToTrash(${id})">Move to Trash</a>
                     <hr class="mt-1 mb-1" style="background-color: white;">
                     <a class="dropdown-item" href="javascript:void(0)">Share To</a>
                     <a class="dropdown-item" href="javascript:void(0)">Generate Link</a>
@@ -233,11 +233,11 @@ function docItem(id, name, url){
                 <button type="button" class="btn btn-dropdown btn-sm  icon-btn borderless md-btn-flat hide-arrow dropdown-toggle" data-toggle="dropdown"><i class="ion ion-ios-more"></i></button>
                 <div class="dropdown-menu dropdown-menu-right">
                     <a class="dropdown-item" href="${url}" target="_blank">Open</a>
+                    <a class="dropdown-item" href="javascript:void(0)">Download</a>
                     <a class="dropdown-item" href="javascript:renameObject(${id})">Rename</a>
                     <a class="dropdown-item" href="javascript:void(0)">Move</a>
                     <a class="dropdown-item" href="javascript:void(0)">Copy</a>
-                    <a class="dropdown-item" href="javascript:void(0)">Move to Trash</a>
-                    <a class="dropdown-item" href="javascript:void(0)">Download</a>
+                    <a class="dropdown-item" href="javascript:moveItemToTrash(${id})">Move to Trash</a>
                     <hr class="mt-1 mb-1" style="background-color: white;">
                     <a class="dropdown-item" href="javascript:void(0)">Share To</a>
                     <a class="dropdown-item" href="javascript:void(0)">Generate Link</a>
@@ -273,11 +273,11 @@ function textItem(id, name, url){
                 <button type="button" class="btn btn-dropdown btn-sm  icon-btn borderless md-btn-flat hide-arrow dropdown-toggle" data-toggle="dropdown"><i class="ion ion-ios-more"></i></button>
                 <div class="dropdown-menu dropdown-menu-right">
                     <a class="dropdown-item" href="${url}" target="_blank">Open</a>
+                    <a class="dropdown-item" href="javascript:void(0)">Download</a>
                     <a class="dropdown-item" href="javascript:renameObject(${id})">Rename</a>
                     <a class="dropdown-item" href="javascript:void(0)">Move</a>
                     <a class="dropdown-item" href="javascript:void(0)">Copy</a>
-                    <a class="dropdown-item" href="javascript:void(0)">Move to Trash</a>
-                    <a class="dropdown-item" href="javascript:void(0)">Download</a>
+                    <a class="dropdown-item" href="javascript:moveItemToTrash(${id})">Move to Trash</a>
                     <hr class="mt-1 mb-1" style="background-color: white;">
                     <a class="dropdown-item" href="javascript:void(0)">Share To</a>
                     <a class="dropdown-item" href="javascript:void(0)">Generate Link</a>
@@ -313,11 +313,11 @@ function otherItem(id, name, url){
                 <button type="button" class="btn btn-dropdown btn-sm  icon-btn borderless md-btn-flat hide-arrow dropdown-toggle" data-toggle="dropdown"><i class="ion ion-ios-more"></i></button>
                 <div class="dropdown-menu dropdown-menu-right">
                     <a class="dropdown-item" href="${url}" target="_blank">Open</a>
+                    <a class="dropdown-item" href="javascript:void(0)">Download</a>
                     <a class="dropdown-item" href="javascript:renameObject(${id})">Rename</a>
                     <a class="dropdown-item" href="javascript:void(0)">Move</a>
                     <a class="dropdown-item" href="javascript:void(0)">Copy</a>
-                    <a class="dropdown-item" href="javascript:void(0)">Move to Trash</a>
-                    <a class="dropdown-item" href="javascript:void(0)">Download</a>
+                    <a class="dropdown-item" href="javascript:moveItemToTrash(${id})">Move to Trash</a>
                     <hr class="mt-1 mb-1" style="background-color: white;">
                     <a class="dropdown-item" href="javascript:void(0)">Share To</a>
                     <a class="dropdown-item" href="javascript:void(0)">Generate Link</a>

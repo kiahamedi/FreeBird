@@ -335,3 +335,55 @@ function sendRenameObject(){
 
 
 }
+
+
+function moveItemToTrash(id){
+    $('#input-modal-move-to-trash-id').val(id);
+    $('#modal-object-move-to-trash').modal('toggle');
+}
+
+function submitItemToTrash(){
+    var objID = $('#input-modal-move-to-trash-id').val();
+
+    const myHeaders = new Headers();
+    myHeaders.append("Authorization", "Bearer " + getCookie('ja'));
+
+    const formdata = new FormData();
+    formdata.append("objectId", objID);
+
+    const requestOptions = {
+        method: "POST",
+        headers: myHeaders,
+        body: formdata,
+        redirect: "follow"
+    };
+    
+    fetch("/account/api/movetotrash/", requestOptions)
+    .then((response)  =>  {
+        if (response.status == 200){
+            return response.json()
+        } else {
+            toastMixinDanger.fire({
+                animation: true,
+                title: "Exist Problem!"
+              });
+        }
+    }).then(data => {
+
+        data = data.data;
+        var obid = data.id;
+
+        $("#file-" + obid).remove()
+        $('#input-modal-move-to-trash-id').val("");
+        $('#modal-object-move-to-trash').modal('toggle');
+
+        toastMixinSuccess.fire({
+            animation: true,
+            title: "Your item now in Trash!"
+          });
+        
+    })
+    .catch((error) => {
+        console.error(error)
+    });
+}
