@@ -43,6 +43,9 @@ function createFolder(){
 
 async function refreshObjects(folderId, folderName, modalflag=0){
     $('#class-main-file-manager').html('');
+
+    var isTrash = getCookie('is_trash');
+
     var pwd = getCookie('pwd').replace(/"/g,'');
     const myHeaders = new Headers();
     myHeaders.append("Authorization", "Bearer " + getCookie('ja'));
@@ -57,6 +60,7 @@ async function refreshObjects(folderId, folderName, modalflag=0){
     }
     formdata.append("folderId", folderId);
     formdata.append("folderName", folderName);
+    formdata.append("isTrash", isTrash);
 
     const requestOptions = {
         method: "POST",
@@ -155,7 +159,15 @@ async function refreshObjects(folderId, folderName, modalflag=0){
 
 
 function openToFolder(id, name){
-    refreshObjects(id, name);
+    if (getCookie('is_trash') == '1'){
+        toastMixinDanger.fire({
+            animation: true,
+            title: "Your folder is in trash, for open it please restore from trash!"
+          });
+    } else {
+        refreshObjects(id, name);
+    }
+    
 }
 
 

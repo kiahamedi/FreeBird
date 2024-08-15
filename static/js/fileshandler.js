@@ -49,7 +49,33 @@ function folderItem(id, name){
             </div>
         </div>
     `;
-    return  item_folder;
+    var item_folder_in_trash = `
+        <div class="file-item" id="file-${id}">
+            <div class="file-item-select-bg bg-primary"></div>
+            <label class="file-item-checkbox custom-control custom-checkbox" id="file-checkbox-${id}">
+                <input type="checkbox" class="custom-control-input" id="file-input-checkbox-${id}" onclick=checkboxIsChecked(${id}) />
+                <span class="custom-control-label"></span>
+            </label>
+            <a href="javascript:openToFolder(${id},'${name}')"><div class="file-item-icon fas fa-folder text-secondary folderitem"></div></a>
+            <a href="javascript:openToFolder(${id},'${name}')" class="file-item-name" id="file-item-name-${id}">
+                ${name}
+            </a>
+            <div class="file-item-changed">02/13/2018</div>
+            <div class="file-item-actions btn-group">
+                <button type="button" class="btn btn-dropdown btn-sm  icon-btn borderless md-btn-flat hide-arrow dropdown-toggle" data-toggle="dropdown"><i class="ion ion-ios-more"></i></button>
+                <div class="dropdown-menu dropdown-menu-right">
+                    <a class="dropdown-item" href="javascript:void(0)">Restore</a>
+                    <a class="dropdown-item" href="javascript:void(0)">Empty</a>
+                </div>
+            </div>
+        </div>
+    `;
+    if (getCookie('is_trash') == '1'){
+        return  item_folder_in_trash;
+    } else {
+        return  item_folder;
+    }
+    
 }
 
 
@@ -91,7 +117,32 @@ function imageItem(id, name, url){
         </div>
     </div>
     `;
-    return image_item;
+    var item_image_in_trash = `
+        <div class="file-item" id="file-${id}">
+            <div class="file-item-select-bg bg-primary"></div>
+            <label class="file-item-checkbox custom-control custom-checkbox" id="file-checkbox-${id}">
+                <input type="checkbox" class="custom-control-input" id="file-input-checkbox-${id}" onclick=checkboxIsChecked(${id}) />
+                <span class="custom-control-label"></span>
+            </label>
+            <a href="${url}" target="_blank"><div class="file-item-img" style="background-image: url(${url});"></div></a>
+            <a href="javascript:openToFolder(${id},'${name}')" class="file-item-name" id="file-item-name-${id}">
+                ${name}
+            </a>
+            <div class="file-item-changed">02/13/2018</div>
+            <div class="file-item-actions btn-group">
+                <button type="button" class="btn btn-dropdown btn-sm  icon-btn borderless md-btn-flat hide-arrow dropdown-toggle" data-toggle="dropdown"><i class="ion ion-ios-more"></i></button>
+                <div class="dropdown-menu dropdown-menu-right">
+                    <a class="dropdown-item" href="javascript:void(0)">Restore</a>
+                    <a class="dropdown-item" href="javascript:void(0)">Empty</a>
+                </div>
+            </div>
+        </div>
+    `;
+    if (getCookie('is_trash') == '1'){
+        return  item_image_in_trash;
+    } else {
+        return  image_item;
+    }
 }
 
 
@@ -132,7 +183,32 @@ function pdfItem(id, name, url){
             </div>
         </div>
     `;
-    return pdf_item;
+    var item_pdf_in_trash = `
+        <div class="file-item" id="file-${id}">
+            <div class="file-item-select-bg bg-primary"></div>
+            <label class="file-item-checkbox custom-control custom-checkbox" id="file-checkbox-${id}">
+                <input type="checkbox" class="custom-control-input" id="file-input-checkbox-${id}" onclick=checkboxIsChecked(${id}) />
+                <span class="custom-control-label"></span>
+            </label>
+            <a href="${url}"><div class="file-item-icon fas fa-file-pdf text-secondary"></div></a>
+            <a href="javascript:openToFolder(${id},'${name}')" class="file-item-name" id="file-item-name-${id}">
+                ${name}
+            </a>
+            <div class="file-item-changed">02/13/2018</div>
+            <div class="file-item-actions btn-group">
+                <button type="button" class="btn btn-dropdown btn-sm  icon-btn borderless md-btn-flat hide-arrow dropdown-toggle" data-toggle="dropdown"><i class="ion ion-ios-more"></i></button>
+                <div class="dropdown-menu dropdown-menu-right">
+                    <a class="dropdown-item" href="javascript:void(0)">Restore</a>
+                    <a class="dropdown-item" href="javascript:void(0)">Empty</a>
+                </div>
+            </div>
+        </div>
+    `;
+    if (getCookie('is_trash') == '1'){
+        return  item_pdf_in_trash;
+    } else {
+        return  pdf_item;
+    }
 }
 
 
@@ -173,7 +249,32 @@ function compressedItem(id, name, url){
             </div>
         </div>
     `;
-    return compressed_item;
+    var item_compressed_in_trash = `
+        <div class="file-item" id="file-${id}">
+            <div class="file-item-select-bg bg-primary"></div>
+            <label class="file-item-checkbox custom-control custom-checkbox" id="file-checkbox-${id}">
+                <input type="checkbox" class="custom-control-input" id="file-input-checkbox-${id}" onclick=checkboxIsChecked(${id}) />
+                <span class="custom-control-label"></span>
+            </label>
+            <a href="${url}"><div class="file-item-icon fas fa-file-archive text-secondary"></div></a>
+            <a href="javascript:openToFolder(${id},'${name}')" class="file-item-name" id="file-item-name-${id}">
+                ${name}
+            </a>
+            <div class="file-item-changed">02/13/2018</div>
+            <div class="file-item-actions btn-group">
+                <button type="button" class="btn btn-dropdown btn-sm  icon-btn borderless md-btn-flat hide-arrow dropdown-toggle" data-toggle="dropdown"><i class="ion ion-ios-more"></i></button>
+                <div class="dropdown-menu dropdown-menu-right">
+                    <a class="dropdown-item" href="javascript:void(0)">Restore</a>
+                    <a class="dropdown-item" href="javascript:void(0)">Empty</a>
+                </div>
+            </div>
+        </div>
+    `;
+    if (getCookie('is_trash') == '1'){
+        return  item_compressed_in_trash;
+    } else {
+        return  compressed_item;
+    }
 }
 
 function videoItem(id, name, url){
@@ -213,7 +314,32 @@ function videoItem(id, name, url){
             </div>
         </div>
     `;
-    return video_item;
+    var item_video_in_trash = `
+        <div class="file-item" id="file-${id}">
+            <div class="file-item-select-bg bg-primary"></div>
+            <label class="file-item-checkbox custom-control custom-checkbox" id="file-checkbox-${id}">
+                <input type="checkbox" class="custom-control-input" id="file-input-checkbox-${id}" onclick=checkboxIsChecked(${id}) />
+                <span class="custom-control-label"></span>
+            </label>
+            <a href="${url}"><div class="file-item-icon fas fa-file-video text-secondary"></div></a>
+            <a href="javascript:openToFolder(${id},'${name}')" class="file-item-name" id="file-item-name-${id}">
+                ${name}
+            </a>
+            <div class="file-item-changed">02/13/2018</div>
+            <div class="file-item-actions btn-group">
+                <button type="button" class="btn btn-dropdown btn-sm  icon-btn borderless md-btn-flat hide-arrow dropdown-toggle" data-toggle="dropdown"><i class="ion ion-ios-more"></i></button>
+                <div class="dropdown-menu dropdown-menu-right">
+                    <a class="dropdown-item" href="javascript:void(0)">Restore</a>
+                    <a class="dropdown-item" href="javascript:void(0)">Empty</a>
+                </div>
+            </div>
+        </div>
+    `;
+    if (getCookie('is_trash') == '1'){
+        return  item_video_in_trash;
+    } else {
+        return  video_item;
+    }
 }
 
 function docItem(id, name, url){
@@ -253,7 +379,32 @@ function docItem(id, name, url){
             </div>
         </div>
     `;
-    return doc_item;
+    var item_doc_in_trash = `
+        <div class="file-item" id="file-${id}">
+            <div class="file-item-select-bg bg-primary"></div>
+            <label class="file-item-checkbox custom-control custom-checkbox" id="file-checkbox-${id}">
+                <input type="checkbox" class="custom-control-input" id="file-input-checkbox-${id}" onclick=checkboxIsChecked(${id}) />
+                <span class="custom-control-label"></span>
+            </label>
+            <a href="${url}"><div class="file-item-icon fas fa-file-word text-secondary"></div></a>
+            <a href="javascript:openToFolder(${id},'${name}')" class="file-item-name" id="file-item-name-${id}">
+                ${name}
+            </a>
+            <div class="file-item-changed">02/13/2018</div>
+            <div class="file-item-actions btn-group">
+                <button type="button" class="btn btn-dropdown btn-sm  icon-btn borderless md-btn-flat hide-arrow dropdown-toggle" data-toggle="dropdown"><i class="ion ion-ios-more"></i></button>
+                <div class="dropdown-menu dropdown-menu-right">
+                    <a class="dropdown-item" href="javascript:void(0)">Restore</a>
+                    <a class="dropdown-item" href="javascript:void(0)">Empty</a>
+                </div>
+            </div>
+        </div>
+    `;
+    if (getCookie('is_trash') == '1'){
+        return  item_doc_in_trash;
+    } else {
+        return  doc_item;
+    }
 }
 
 function textItem(id, name, url){
@@ -293,7 +444,32 @@ function textItem(id, name, url){
             </div>
         </div>
     `;
-    return text_item;
+    var item_text_in_trash = `
+        <div class="file-item" id="file-${id}">
+            <div class="file-item-select-bg bg-primary"></div>
+            <label class="file-item-checkbox custom-control custom-checkbox" id="file-checkbox-${id}">
+                <input type="checkbox" class="custom-control-input" id="file-input-checkbox-${id}" onclick=checkboxIsChecked(${id}) />
+                <span class="custom-control-label"></span>
+            </label>
+            <a href="${url}"><div class="file-item-icon fas fa-file-alt text-secondary"></div></a>
+            <a href="javascript:openToFolder(${id},'${name}')" class="file-item-name" id="file-item-name-${id}">
+                ${name}
+            </a>
+            <div class="file-item-changed">02/13/2018</div>
+            <div class="file-item-actions btn-group">
+                <button type="button" class="btn btn-dropdown btn-sm  icon-btn borderless md-btn-flat hide-arrow dropdown-toggle" data-toggle="dropdown"><i class="ion ion-ios-more"></i></button>
+                <div class="dropdown-menu dropdown-menu-right">
+                    <a class="dropdown-item" href="javascript:void(0)">Restore</a>
+                    <a class="dropdown-item" href="javascript:void(0)">Empty</a>
+                </div>
+            </div>
+        </div>
+    `;
+    if (getCookie('is_trash') == '1'){
+        return  item_text_in_trash;
+    } else {
+        return  text_item;
+    }
 }
 
 function otherItem(id, name, url){
@@ -333,5 +509,30 @@ function otherItem(id, name, url){
             </div>
         </div>
     `;
-    return other_item;
+    var item_other_in_trash = `
+        <div class="file-item" id="file-${id}">
+            <div class="file-item-select-bg bg-primary"></div>
+            <label class="file-item-checkbox custom-control custom-checkbox" id="file-checkbox-${id}">
+                <input type="checkbox" class="custom-control-input" id="file-input-checkbox-${id}" onclick=checkboxIsChecked(${id}) />
+                <span class="custom-control-label"></span>
+            </label>
+            <a href="${url}"><div class="file-item-icon fas fa-file text-secondary"></div></a>
+            <a href="javascript:openToFolder(${id},'${name}')" class="file-item-name" id="file-item-name-${id}">
+                ${name}
+            </a>
+            <div class="file-item-changed">02/13/2018</div>
+            <div class="file-item-actions btn-group">
+                <button type="button" class="btn btn-dropdown btn-sm  icon-btn borderless md-btn-flat hide-arrow dropdown-toggle" data-toggle="dropdown"><i class="ion ion-ios-more"></i></button>
+                <div class="dropdown-menu dropdown-menu-right">
+                    <a class="dropdown-item" href="javascript:void(0)">Restore</a>
+                    <a class="dropdown-item" href="javascript:void(0)">Empty</a>
+                </div>
+            </div>
+        </div>
+    `;
+    if (getCookie('is_trash') == '1'){
+        return  item_other_in_trash;
+    } else {
+        return  other_item;
+    }
 }
