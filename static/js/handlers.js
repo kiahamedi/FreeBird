@@ -499,3 +499,19 @@ function submitRemoveItemForEver(){
         console.error(error)
     });
 }
+
+
+function moveObjectsToNewDir(){
+    setCookie("is_cm_stage", '1');
+
+    var av_items = $(".custom-control-input");
+    var checkItems = []
+    for (i=0; i<av_items.length;i++){
+        if(av_items[i].checked){
+            checkItems.push(av_items[i])
+        }
+    }
+    console.log(checkItems);
+    
+    
+}

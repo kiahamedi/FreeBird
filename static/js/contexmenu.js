@@ -41,8 +41,7 @@ var $ = jQuery;
                         }else if (key == "newfolder"){
                             $('#modal-create-folder').modal('toggle');
                         }else if (key == "moveobject"){
-                            setCookie("is_cm_stage", '1');
-
+                            moveObjectsToNewDir();
                         }else if (key == "copyobject"){
                             setCookie("is_cm_stage", '1');
 
