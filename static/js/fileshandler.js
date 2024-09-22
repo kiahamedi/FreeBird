@@ -31,8 +31,6 @@ function folderItem(id, name){
                     <a class="dropdown-item" href="javascript:javascript:openToFolder(${id},'${name}')">Open to Folder</a>
                     <a class="dropdown-item" href="javascript:void(0)">Download</a>
                     <a class="dropdown-item" href="javascript:renameObject(${id})">Rename</a>
-                    <a class="dropdown-item" href="javascript:void(0)">Move</a>
-                    <a class="dropdown-item" href="javascript:void(0)">Copy</a>
                     <a class="dropdown-item" href="javascript:moveItemToTrash(${id})">Move to Trash</a>
                     <hr class="mt-1 mb-1" style="background-color: white;">
                     <a class="dropdown-item" href="javascript:void(0)">Share To</a>
@@ -99,8 +97,6 @@ function imageItem(id, name, url){
                     <a class="dropdown-item" href="${url}" target="_blank">Open</a>
                     <a class="dropdown-item" href="javascript:void(0)">Download</a>
                     <a class="dropdown-item" href="javascript:renameObject(${id})">Rename</a>
-                    <a class="dropdown-item" href="javascript:void(0)">Move</a>
-                    <a class="dropdown-item" href="javascript:void(0)">Copy</a>
                     <a class="dropdown-item" href="javascript:moveItemToTrash(${id})">Move to Trash</a>
                     <hr class="mt-1 mb-1" style="background-color: white;">
                     <a class="dropdown-item" href="javascript:void(0)">Share To</a>
@@ -165,8 +161,6 @@ function pdfItem(id, name, url){
                     <a class="dropdown-item" href="${url}" target="_blank">Open</a>
                     <a class="dropdown-item" href="javascript:void(0)">Download</a>
                     <a class="dropdown-item" href="javascript:renameObject(${id})">Rename</a>
-                    <a class="dropdown-item" href="javascript:void(0)">Move</a>
-                    <a class="dropdown-item" href="javascript:void(0)">Copy</a>
                     <a class="dropdown-item" href="javascript:moveItemToTrash(${id})">Move to Trash</a>
                     <hr class="mt-1 mb-1" style="background-color: white;">
                     <a class="dropdown-item" href="javascript:void(0)">Share To</a>
@@ -231,8 +225,6 @@ function compressedItem(id, name, url){
                     <a class="dropdown-item" href="${url}" target="_blank">Open</a>
                     <a class="dropdown-item" href="javascript:void(0)">Download</a>
                     <a class="dropdown-item" href="javascript:renameObject(${id})">Rename</a>
-                    <a class="dropdown-item" href="javascript:void(0)">Move</a>
-                    <a class="dropdown-item" href="javascript:void(0)">Copy</a>
                     <a class="dropdown-item" href="javascript:moveItemToTrash(${id})">Move to Trash</a>
                     <hr class="mt-1 mb-1" style="background-color: white;">
                     <a class="dropdown-item" href="javascript:void(0)">Share To</a>
@@ -296,8 +288,6 @@ function videoItem(id, name, url){
                     <a class="dropdown-item" href="${url}" target="_blank">Open</a>
                     <a class="dropdown-item" href="javascript:void(0)">Download</a>
                     <a class="dropdown-item" href="javascript:renameObject(${id})">Rename</a>
-                    <a class="dropdown-item" href="javascript:void(0)">Move</a>
-                    <a class="dropdown-item" href="javascript:void(0)">Copy</a>
                     <a class="dropdown-item" href="javascript:moveItemToTrash(${id})">Move to Trash</a>
                     <hr class="mt-1 mb-1" style="background-color: white;">
                     <a class="dropdown-item" href="javascript:void(0)">Share To</a>
@@ -361,8 +351,6 @@ function docItem(id, name, url){
                     <a class="dropdown-item" href="${url}" target="_blank">Open</a>
                     <a class="dropdown-item" href="javascript:void(0)">Download</a>
                     <a class="dropdown-item" href="javascript:renameObject(${id})">Rename</a>
-                    <a class="dropdown-item" href="javascript:void(0)">Move</a>
-                    <a class="dropdown-item" href="javascript:void(0)">Copy</a>
                     <a class="dropdown-item" href="javascript:moveItemToTrash(${id})">Move to Trash</a>
                     <hr class="mt-1 mb-1" style="background-color: white;">
                     <a class="dropdown-item" href="javascript:void(0)">Share To</a>
@@ -426,8 +414,6 @@ function textItem(id, name, url){
                     <a class="dropdown-item" href="${url}" target="_blank">Open</a>
                     <a class="dropdown-item" href="javascript:void(0)">Download</a>
                     <a class="dropdown-item" href="javascript:renameObject(${id})">Rename</a>
-                    <a class="dropdown-item" href="javascript:void(0)">Move</a>
-                    <a class="dropdown-item" href="javascript:void(0)">Copy</a>
                     <a class="dropdown-item" href="javascript:moveItemToTrash(${id})">Move to Trash</a>
                     <hr class="mt-1 mb-1" style="background-color: white;">
                     <a class="dropdown-item" href="javascript:void(0)">Share To</a>
@@ -491,8 +477,6 @@ function otherItem(id, name, url){
                     <a class="dropdown-item" href="${url}" target="_blank">Open</a>
                     <a class="dropdown-item" href="javascript:void(0)">Download</a>
                     <a class="dropdown-item" href="javascript:renameObject(${id})">Rename</a>
-                    <a class="dropdown-item" href="javascript:void(0)">Move</a>
-                    <a class="dropdown-item" href="javascript:void(0)">Copy</a>
                     <a class="dropdown-item" href="javascript:moveItemToTrash(${id})">Move to Trash</a>
                     <hr class="mt-1 mb-1" style="background-color: white;">
                     <a class="dropdown-item" href="javascript:void(0)">Share To</a>

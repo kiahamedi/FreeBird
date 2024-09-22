@@ -514,3 +514,21 @@ function moveObjectsToNewDir(){
     }
     setCookie("is_cm_selected", checkItems.join(","));
 }
+
+
+function pasteObjectsToNewDir(){
+    var items = getCookie("is_cm_selected");
+    var pwd = getCookie('pwd').replace(/"/g,'');
+    var mode = getCookie('is_cm_mode');
+    
+    alert(items +" "+ pwd +" "+ mode);
+
+    // TODO Post items into server
+    
+
+    
+    setCookie("is_cm_mode", 'noraml');
+    setCookie("is_cm_stage", '0');
+    setCookie("is_cm_selected", "");
+    refreshObjectsHere();
+}

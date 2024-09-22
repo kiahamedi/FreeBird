@@ -46,7 +46,7 @@ var $ = jQuery;
                             setCookie("is_cm_stage", '1');
 
                         }else if (key == "pasteobject"){
-                            setCookie("is_cm_stage", '0');
+                            pasteObjectsToNewDir();
 
                         };
                     },
