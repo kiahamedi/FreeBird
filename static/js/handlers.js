@@ -503,15 +503,14 @@ function submitRemoveItemForEver(){
 
 function moveObjectsToNewDir(){
     setCookie("is_cm_stage", '1');
-
+    setCookie("is_cm_mode", 'move');
     var av_items = $(".custom-control-input");
     var checkItems = []
     for (i=0; i<av_items.length;i++){
         if(av_items[i].checked){
-            checkItems.push(av_items[i])
+            
+            checkItems.push(av_items[i]['id'].split("-")[3]);
         }
     }
-    console.log(checkItems);
-    
-    
+    setCookie("is_cm_selected", checkItems.join(","));
 }
