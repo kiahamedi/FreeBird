@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from account.models import User, Object
 from rest_framework.views import APIView
@@ -10,6 +10,9 @@ from rest_framework_simplejwt.tokens import RefreshToken
 from extensions.utils import convert_size
 import os
 
+from django.views import View
+from .forms import LoginForm
+from django.contrib.auth import authenticate, login
 
 # Create your views here.
 
@@ -356,3 +359,21 @@ class RemoveItemForEver(APIView):
         }
         
         return Response(content, status=status.HTTP_201_CREATED)
+    
+
+
+    
+class LoginUserView(View):
+    form_class = LoginForm
+    template = 'registration/login.html'
+    def get(self, request):
+        form = self.form_class()
+        return render(request, template_name=self.template, context={'form': form})
+    def post(self, request):
+        form = self.form_class(data=request.POST)
+        if form.is_valid():
+            cd = form.cleaned_data
+            user = authenticate(request,username=cd['username'], password=cd['password'])
+            login(request, user)
+            return redirect('account:profile')
+        return render(request, template_name=self.template, context={'form': form})
