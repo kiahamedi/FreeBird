@@ -532,3 +532,8 @@ function pasteObjectsToNewDir(){
     setCookie("is_cm_selected", "");
     refreshObjectsHere();
 }
+
+
+function logOutUser(){
+    $("#logtouForm").submit();
+}
