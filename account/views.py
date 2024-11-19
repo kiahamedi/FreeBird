@@ -356,3 +356,76 @@ class RemoveItemForEver(APIView):
         }
         
         return Response(content, status=status.HTTP_201_CREATED)
+
+
+
+class MoveOrCopyObject(APIView):
+    authentication_classes = [JWTAuthentication]
+    permission_classes = [IsAuthenticated]
+
+    def post(self, request):
+        objectIds = request.POST.get('objectIds').split(",")
+        mode = request.POST.get('mode')
+        pwd = request.POST.get('pwd')
+    
+        
+        if mode == "move":
+             
+            for items in objectIds:
+                try:
+                    target_object = Object.objects.get(id=int(items), owner=request.user)
+                except:
+                    content = {
+                        'msg' : "404 Not Found",
+                        'data' : None,
+                    }
+                    return Response(content, status=status.HTTP_404_NOT_FOUND)
+                
+                if target_object.iFolder == False:
+                    target_object.path = pwd
+                    target_object.save()
+                    
+                elif target_object.iFolder == True:
+                    foldePWD =target_object.path +"/"+ target_object.name
+                    objects = Object.objects.filter(owner=request.user, path__startswith=foldePWD , trash=False)
+                    for f in objects:
+                        f.path = f.path.replace(target_object.path, pwd)
+                        f.save()
+                    target_object.path = pwd
+                    target_object.save()
+                        
+                    
+            content = {
+                'msg' : "Moved was successfull!",
+                'data' : None,
+            }
+            return Response(content, status=status.HTTP_200_OK)
+        elif mode == "copy":
+            content = {
+                'msg' : "Copied was successfull!",
+                'data' : None,
+            }
+            
+            return Response(content, status=status.HTTP_200_OK)
+        else:
+            content = {
+                'msg' : "404 Not Found",
+                'data' : None,
+            }
+            return Response(content, status=status.HTTP_404_NOT_FOUND)
+
+        
+
+        # target_object.trash = isTrashStatus
+        # target_object.save()
+        
+        # data = {
+           
+        # }
+        
+        # content = {
+        #     'msg' : "Copied was successfull!",
+        #     'data' : data,
+        # }
+        
+        # return Response(content, status=status.HTTP_200_OK)

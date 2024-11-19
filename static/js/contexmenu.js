@@ -13,9 +13,23 @@ var $ = jQuery;
                     "create": { name: "Create", icon: "fas fa-calendar-plus"},
                 }
             },
+            "uploadfile": { name: "Upload File", icon: "fas fa-file-upload" },
+            "uploadfolder": { name: "Upload Folder", icon: "fas fa-folder-open" },
             "newfolder": { name: "New Folder", icon: "fas fa-folder-plus" },
-            "moveobject": { name: "Move", icon: "fas fa-exchange-alt" },
-            "copyobject": { name: "Copy", icon: "fas fa-copy" },
+            "moveobject": { name: "Move", icon: "fas fa-exchange-alt" , visible: function(key, opt) {
+                if (getCookie('is_cm_stage') == '0'){
+                    return true;
+                } else {
+                    return false;
+                }
+                }},
+            "copyobject": { name: "Copy", icon: "fas fa-copy" , visible: function(key, opt) {
+                if (getCookie('is_cm_stage') == '0'){
+                    return true;
+                } else {
+                    return false;
+                }
+                }},
             "pasteobject": { name: "Paste", icon: "fas fa-paste", visible: function(key, opt) {
                 if (getCookie('is_cm_stage') == '1'){
                     return true;
@@ -23,8 +37,6 @@ var $ = jQuery;
                     return false;
                 }
                 }},
-            "uploadfile": { name: "Upload File", icon: "fas fa-file-upload" },
-            "uploadfolder": { name: "Upload Folder", icon: "fas fa-folder-open" },
         }
     
 
@@ -41,13 +53,11 @@ var $ = jQuery;
                         }else if (key == "newfolder"){
                             $('#modal-create-folder').modal('toggle');
                         }else if (key == "moveobject"){
-                            moveObjectsToNewDir();
+                            moveOrCopyObjectsToNewDir("move");
                         }else if (key == "copyobject"){
-                            setCookie("is_cm_stage", '1');
-
+                            moveOrCopyObjectsToNewDir("copy");
                         }else if (key == "pasteobject"){
                             pasteObjectsToNewDir();
-
                         };
                     },
                     items: itemscpm

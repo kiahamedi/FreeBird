@@ -501,37 +501,7 @@ function submitRemoveItemForEver(){
 }
 
 
-function moveObjectsToNewDir(){
-    setCookie("is_cm_stage", '1');
-    setCookie("is_cm_mode", 'move');
-    var av_items = $(".custom-control-input");
-    var checkItems = []
-    for (i=0; i<av_items.length;i++){
-        if(av_items[i].checked){
-            
-            checkItems.push(av_items[i]['id'].split("-")[3]);
-        }
-    }
-    setCookie("is_cm_selected", checkItems.join(","));
-}
 
-
-function pasteObjectsToNewDir(){
-    var items = getCookie("is_cm_selected");
-    var pwd = getCookie('pwd').replace(/"/g,'');
-    var mode = getCookie('is_cm_mode');
-    
-    alert(items +" "+ pwd +" "+ mode);
-
-    // TODO Post items into server
-    
-
-    
-    setCookie("is_cm_mode", 'noraml');
-    setCookie("is_cm_stage", '0');
-    setCookie("is_cm_selected", "");
-    refreshObjectsHere();
-}
 
 
 function logOutUser(){

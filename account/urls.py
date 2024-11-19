@@ -24,6 +24,7 @@ urlpatterns += [
     path('api/rename/', account_views.RenameObject.as_view()),
     path('api/movetotrash/', account_views.MoveToTrashObject.as_view()),
     path('api/removeforever/', account_views.RemoveItemForEver.as_view()),
+    path('api/moveorcopyobject/', account_views.MoveOrCopyObject.as_view()),
     
     path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
     path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
